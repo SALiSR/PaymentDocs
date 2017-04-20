@@ -78,14 +78,32 @@
 
     <repositories>
         <repository>
+            <id>jasperreports-external-lib</id>
+            <url>http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/</url>
+        </repository>
+        <repository>
+            <id>jasperreports</id>
+            <url>http://jasperreports.sourceforge.net/maven2</url>
+        </repository>
+        <repository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
         </repository>
         <repository>
             <id>Central</id>
             <name>Central</name>
-            <url>http://repo1.maven.org/maven2/</url>
+            <url>http://maven.apache.org</url>
             <layout>default</layout>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.bundles.release</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.bundles.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
         </repository>
     </repositories>
 
