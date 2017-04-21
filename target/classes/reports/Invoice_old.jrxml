@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-03-30T13:39:23 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28dfa3d5-2aaf-4ec2-9a29-4c0957e59ed3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<subDataset name="ware" uuid="087a52ea-08b8-485a-81fe-af6a1452c281">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset1" uuid="f061514c-5e05-4b38-8ae8-5fec09b9dab0">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+		<queryString>
+			<![CDATA[select * from product]]>
+		</queryString>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="COST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="801">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="490" height="30" uuid="c21b404d-ed6e-4911-a1a6-eaf775271405">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="490" height="30" uuid="a107c3cc-a765-454e-91d1-8a84f5feeae4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<text><![CDATA[Внимание! Оплата данного счета означает согласие с условиями поставки товара. Уведомление об оплате 
+ обязательно, в противном случае не гарантируется наличие товара на складе. Товар отпускается по факту
+ прихода денег на р/с Поставщика, самовывозом, при наличии доверенности и паспорта.]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="40" width="491" height="70" uuid="0976b863-04d1-4e89-baba-e4c813f2aba6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<frame>
+					<reportElement x="0" y="0" width="280" height="30" uuid="a3ecc23b-16b1-455e-a5a6-3d5bd8155a97"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="20" width="280" height="10" uuid="b5c1bf6a-5e24-4dca-bd23-546278b46589">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Times New Roman" size="8"/>
+							<paragraph firstLineIndent="5"/>
+						</textElement>
+						<text><![CDATA[Банк получателя]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="42" width="280" height="28" uuid="cf38c4fc-f346-4d85-b922-3d169b67e3cf"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+				</frame>
+				<frame>
+					<reportElement x="280" y="0" width="40" height="12" uuid="a46201be-6f84-4d28-97e3-a19f4de88a83">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="12" uuid="eafeeb2c-54ad-4caa-9005-b5078b05ce90"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Times" size="9"/>
+							<paragraph firstLineIndent="5"/>
+						</textElement>
+						<text><![CDATA[БИК]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="280" y="12" width="40" height="18" uuid="8d1eb97f-ec79-4eef-875a-80df76452fbd"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="18" uuid="9da3ae80-d2b6-451c-b5e8-8e4e3e1b54ab"/>
+						<textElement>
+							<font fontName="Times New Roman" size="9"/>
+							<paragraph firstLineIndent="5" spacingBefore="1"/>
+						</textElement>
+						<text><![CDATA[Сч. №]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="280" y="30" width="40" height="40" uuid="9f83be3b-f1f6-46fa-a725-a7048e283894"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="40" uuid="69eb4099-a166-422e-aa1b-655f0b699280"/>
+						<textElement>
+							<font fontName="Times New Roman" size="9"/>
+							<paragraph firstLineIndent="5" spacingBefore="1"/>
+						</textElement>
+						<text><![CDATA[Сч. №]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement x="320" y="0" width="171" height="12" forecolor="#FA0905" uuid="a3a40734-3189-4dde-bc9b-71e763943352"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times" size="9"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[44525716]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="12" width="171" height="18" forecolor="#FA0905" uuid="a4fd9b91-1525-483f-a119-7ee676aadc69"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Times" size="9"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[30101810100000000112]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="320" y="30" width="171" height="40" uuid="45fe8faa-4b5e-4c17-99cd-9cc69dee623a"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="171" height="40" forecolor="#FA0905" uuid="f2e64152-a5c8-4600-8d71-0700f7151684"/>
+						<textElement verticalAlignment="Top">
+							<font fontName="Times" size="9"/>
+							<paragraph firstLineIndent="5"/>
+						</textElement>
+						<text><![CDATA[40702810471000007231]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="42" width="280" height="28" uuid="3e72382f-336a-44c3-a4eb-c9d37f8304e3"/>
+					<staticText>
+						<reportElement x="0" y="18" width="280" height="10" uuid="cb64c5c9-44af-4317-a87c-f641a713ef7a"/>
+						<textElement>
+							<font fontName="Times New Roman" size="8"/>
+							<paragraph firstLineIndent="5"/>
+						</textElement>
+						<text><![CDATA[Получатель]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="280" height="18" forecolor="#FF0400" uuid="559214ae-e1d2-4ec2-9c42-edc56da149b6"/>
+						<textElement>
+							<font fontName="Times New Roman" size="9"/>
+							<paragraph firstLineIndent="5"/>
+						</textElement>
+						<text><![CDATA[ООО "Система"]]></text>
+					</staticText>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement x="0" y="70" width="140" height="12" uuid="c42cf994-0bd9-41b2-9772-d4ef58f77266">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="30" height="12" uuid="c4899cb6-6a28-4da2-91fd-29dbd08e7cfc"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times" size="8"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[ИНН]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="30" y="0" width="110" height="12" forecolor="#FC0905" uuid="997267e7-e898-483f-a51c-54d974ac89f3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times" size="8"/>
+					</textElement>
+					<text><![CDATA[7710701721]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="140" y="70" width="140" height="12" uuid="4848679a-48c7-42e0-9f85-04d3f5dcc34c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="35" height="12" uuid="9056d724-f652-4916-bfea-df883e038c16"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times" size="8"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[КПП]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="0" width="105" height="12" forecolor="#FC0905" uuid="46fcd65a-f4e9-4b59-9350-5d974cf3050d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times" size="8"/>
+					</textElement>
+					<text><![CDATA[771001001]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="40" width="280" height="20" forecolor="#FC0703" uuid="93d7acd8-4449-4f77-b034-9a2a9c61518e">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<text><![CDATA[ВТБ 24 (ЗАО) г.Москва]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="120" height="20" uuid="acd6bd91-c8a1-470f-bb54-749c2f6622a5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<text><![CDATA[Счет на оплату №]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="120" width="371" height="20" forecolor="#FC0905" uuid="f9b6cfaf-5e82-49da-bd67-a126a70c36c4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[1-НИ от 22 апреля 2011 г.]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="0" y="146" width="490" height="1" uuid="1e8b08f8-f404-480c-9c6d-3dc32e96331a"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement x="0" y="153" width="490" height="40" uuid="6454e339-98b0-4a23-9556-dfb7366b5bff"/>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="40" uuid="6365d61a-8284-44b3-8610-6eab0fc53631"/>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[Поставщик]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="0" width="410" height="40" forecolor="#FC0703" uuid="95f46c34-70f5-4a49-8bb5-e3f4360fb4bd"/>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<text><![CDATA[ООО "Система", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="197" width="490" height="26" uuid="a88fa42e-8702-4cc2-8685-4a012670003f"/>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="26" uuid="dae8c0f7-0532-42e6-b10b-aaf7dc195cb9"/>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+						<paragraph firstLineIndent="5"/>
+					</textElement>
+					<text><![CDATA[Покупатель]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="0" width="410" height="26" forecolor="#FF0905" uuid="4ed821be-e0fd-4534-be06-6d766aa1f047"/>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+						<paragraph firstLineIndent="0"/>
+					</textElement>
+					<text><![CDATA[ООО "НЕРО ГРУП", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="230" width="490" height="64" uuid="ef44f774-6bbd-45cb-966f-d5d0de27db63"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<frame>
+					<reportElement x="0" y="15" width="40" height="49" uuid="28edf5b8-a6ad-46cc-9a05-9f2cb507ad01"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="48" forecolor="#FF0703" uuid="862e19a9-1acb-414e-a75c-07bde7eb9e2d"/>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font size="8"/>
+							<paragraph spacingBefore="5"/>
+						</textElement>
+						<text><![CDATA[1]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="40" y="15" width="210" height="49" uuid="d711d5a2-d576-46ba-88fb-8a0253a4e4c9"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="210" height="50" forecolor="#FF0703" uuid="159e601e-1830-40ed-8c97-91e2e1ba0ea9"/>
+						<textElement>
+							<font fontName="ArialPackageUtf" size="8" isBold="false"/>
+							<paragraph leftIndent="5"/>
+						</textElement>
+						<text><![CDATA[Выполненные работы по вводу в эксплуатацию систем отопления, в т.ч. корректировка и согласование проектной документации по договору №П-1/2011 от 10.04.2011г.]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="250" y="15" width="50" height="49" uuid="04e1ff62-0162-43a9-9a3e-790fa47e8bfc"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="50" height="48" forecolor="#FF0703" uuid="f089b29f-ed25-4fb4-a73e-1009523bc982"/>
+						<textElement textAlignment="Right">
+							<font size="8"/>
+							<paragraph firstLineIndent="5" rightIndent="5" spacingBefore="5"/>
+						</textElement>
+						<text><![CDATA[10]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="300" y="15" width="40" height="49" uuid="2435a624-3949-48f0-a755-66cfa62d5369"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="48" forecolor="#FC0703" uuid="5e5947e4-be6f-4ead-b599-cccac0f65fb6"/>
+						<textElement textAlignment="Center">
+							<font size="8"/>
+							<paragraph leftIndent="5" rightIndent="5" spacingBefore="5" spacingAfter="5"/>
+						</textElement>
+						<text><![CDATA[шт]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="0" width="40" height="15" uuid="c20cf145-d0e3-477f-a50e-fa5371ebe176"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="14" uuid="e39742f2-0f84-419a-b2a3-b2844c76b205"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="ArialPackageUtf" size="9"/>
+							<paragraph firstLineIndent="0"/>
+						</textElement>
+						<text><![CDATA[№]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="40" y="0" width="210" height="15" uuid="a2eada88-5a10-4285-a5ec-be0219b8a9b8"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="210" height="14" uuid="0b7d2b43-f12b-4fff-963a-969eea903b83"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="ArialPackageUtf" size="9"/>
+						</textElement>
+						<text><![CDATA[Товары (работы, услуги)]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="250" y="0" width="50" height="15" uuid="56b25393-bcfb-4dfe-b905-4eba7f43f756"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="50" height="14" uuid="adbb5252-a6ce-428a-af62-47e33e67c6ac"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="ArialPackageUtf" size="9"/>
+						</textElement>
+						<text><![CDATA[Кол-во]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="300" y="0" width="40" height="15" uuid="a4490e89-e49a-48cf-b701-3a66b3d8b2e9"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="14" uuid="8c871c8f-64d0-4318-b4c6-e5e54bdaaefd"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="ArialPackageUtf" size="9"/>
+						</textElement>
+						<text><![CDATA[Ед.]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="340" y="0" width="70" height="15" uuid="ec3ad3bc-a76d-40d1-86be-77fecef2142b"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="70" height="14" uuid="92ac3527-262e-4b90-b353-7f3b8c1d39e9"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="ArialPackageUtf" size="9"/>
+						</textElement>
+						<text><![CDATA[Цена]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="410" y="0" width="80" height="15" uuid="68860038-fbd1-4bb0-be5e-6851f2b3269b"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="80" height="14" uuid="11e0f7a1-27d3-4696-b1a3-df1aa2eb22c6"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle"/>
+						<text><![CDATA[Сумма]]></text>
+					</staticText>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement x="340" y="245" width="70" height="49" uuid="89f21b9a-888b-4517-8a9c-cca08e053919"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="70" height="48" forecolor="#FC0905" uuid="9e6c30d4-713d-4b35-870f-dd4fa6fe406a"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+						<paragraph leftIndent="5" rightIndent="5" spacingBefore="5" spacingAfter="5"/>
+					</textElement>
+					<text><![CDATA[70 000,00]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="410" y="245" width="80" height="49" uuid="b9a2fb63-e13f-4e62-88bf-5f5a7fe05466"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="50" forecolor="#FC0905" uuid="3b2cfefa-3a3f-4933-9085-acdd0f6948b3"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+						<paragraph leftIndent="5" rightIndent="5" spacingBefore="5" spacingAfter="5"/>
+					</textElement>
+					<text><![CDATA[700 000,00]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="300" y="300" width="191" height="14" uuid="44162297-bca2-47f3-953f-0563af6e0565">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="110" height="14" uuid="3ffd4e7d-1689-4b07-9fb2-6ec0819a926f"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Итого:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="0" width="81" height="14" forecolor="#FC0905" uuid="9a155988-9c3b-4dff-9b69-89cbe8f1a85d"/>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[700 000,00]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="300" y="328" width="191" height="14" uuid="082b8467-6a79-4931-a425-066395b0b24b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="110" height="14" uuid="5169572e-2c2f-4aed-91d8-715bcd9445e9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Всего к оплате:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="0" width="80" height="14" forecolor="#FF0703" uuid="93a73a7a-0f59-4ed5-8ac5-7226ba2ad82a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[700 000,00]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="300" y="314" width="190" height="14" uuid="ba3af5c4-d6ad-4ed9-b7d4-4d2e747e7da7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="110" height="14" uuid="72b3f9cf-685b-4076-92e8-c471a7380299"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[В том числе НДС:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="0" width="80" height="14" forecolor="#FF0400" uuid="8d1c52f1-ab3e-4e28-ba13-a13dfbbe57f6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[106 779,70]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="342" width="490" height="14" uuid="44bc1888-a67c-487d-b82d-0395cf786c90"/>
+				<staticText>
+					<reportElement x="0" y="0" width="90" height="14" uuid="abb18497-33e9-489c-9fcc-a69dac0d7f8e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<text><![CDATA[Всего наименований ]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="90" y="342" width="400" height="14" forecolor="#FF0905" uuid="ddb1c698-2f7e-4637-b0c3-80f6d54048be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ArialPackageUtf" size="9"/>
+				</textElement>
+				<text><![CDATA[1, на сумму 700 000,00 руб.]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="356" width="490" height="14" uuid="c0603844-e04a-4a00-808a-a3f7f4f954ab"/>
+				<staticText>
+					<reportElement x="0" y="0" width="490" height="14" forecolor="#FC0703" uuid="d1179f2d-123f-4d0e-aa1b-6606843254e6"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Семьсот тысяч рублей 00 копеек]]></text>
+				</staticText>
+			</frame>
+			<line direction="BottomUp">
+				<reportElement x="0" y="375" width="490" height="1" uuid="003c7f52-96ea-4b89-94e4-5c4181072544"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement x="0" y="390" width="260" height="14" uuid="5b2f218a-8811-4268-b919-728e5e235b65">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="14" uuid="b477cc1c-0fd8-47d5-85fc-981dc22993eb"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Руководитель]]></text>
+				</staticText>
+				<line>
+					<reportElement x="80" y="14" width="180" height="1" uuid="cf3996f9-235f-48df-b8ea-e319528d6690"/>
+				</line>
+				<staticText>
+					<reportElement x="80" y="0" width="180" height="14" forecolor="#FC0905" uuid="d51ab04f-000f-4a57-8bcd-171f9a38a2f1"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<text><![CDATA[Кожевин Д.А.]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="280" y="390" width="210" height="14" uuid="94e156f9-8d4b-4c33-ab68-00c66c093f85"/>
+				<staticText>
+					<reportElement x="0" y="0" width="50" height="14" uuid="18e783f6-dc7f-4db6-a1f8-01d098e7712a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<text><![CDATA[Бухгалтер]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="0" width="160" height="14" forecolor="#FF0703" uuid="22a61be7-fa5d-4c1f-9b9c-6bd7e9dab738"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<text><![CDATA[Иванова И.О.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="50" y="14" width="159" height="1" uuid="9fc611eb-36d5-4caf-a70d-2cad813ed049"/>
+				</line>
+			</frame>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,8 @@
+ru\initiative\jasper\controller\MainController.class
+ru\initiative\jasper\config\TemplateFileNameConfiguration.class
+ru\initiative\jasper\utils\NumbersToWords.class
+ru\initiative\jasper\utils\NumbersToWords$jAmCurrency.class
+ru\initiative\jasper\service\TemplateProcessing.class
+ru\initiative\jasper\dto\DtoOrder.class
+ru\initiative\jasper\Application.class
+ru\initiative\jasper\utils\NumbersToWords$jAmCurrency$CurrencyParam.class
