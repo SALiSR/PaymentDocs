@@ -32,7 +32,7 @@ public class MainController {
         return "mainpage";
     }
 
-    @RequestMapping(value ="/order", method = RequestMethod.GET, produces = "application/pdf", consumes="*/*")
+    @RequestMapping(value ="/order", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
     @ResponseBody
     public byte[] order(Model model, HttpServletRequest request, @ModelAttribute("dtoOrder") DtoOrder dtoOrder) {
         model.addAttribute("name", "name");
