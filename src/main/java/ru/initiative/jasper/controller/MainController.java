@@ -70,9 +70,19 @@ public class MainController {
     @ResponseBody
     public byte[] invoice(HttpServletRequest request) {
         Map<String, Object> reportParams = new HashMap<String, Object>();
-        reportParams.put("paymentOrderNum", "481");
-        reportParams.put("paymentOrderDate", "04.02.2017");
-        reportParams.put("paymentOrderTypePayment", "Электронно");
+        reportParams.put("recipientNameBank", "АО \"ВТБ 24\" г.Москва");
+        reportParams.put("numberINN", "7710701721");
+        reportParams.put("numberKPP", "771001001");
+        reportParams.put("recipientName", "ООО \"Система\"");
+        reportParams.put("recipientBIKBank", "44525716");
+        reportParams.put("recipientBankAccount", "30101810100000000112");
+        reportParams.put("recipientBankAccount2", "40702810471000007231");
+        reportParams.put("documentNumber", "1-НИ от 22 апреля 2011 г.");
+        reportParams.put("providerName", "ООО \"Система\", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88");
+        reportParams.put("buyerName", "ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3");
+        reportParams.put("directorName", "Кожевин Д.А.");
+        reportParams.put("accounterName", "Иванова И.О.");
+
 
         return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
     }
