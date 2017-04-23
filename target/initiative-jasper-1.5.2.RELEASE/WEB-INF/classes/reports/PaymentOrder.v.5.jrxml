@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2017-04-23T15:05:59 -->
+<!-- 2017-04-23T17:19:05 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PO5" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02787c0f-a9d2-40e5-ac54-a47c5bce23d9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="paymentOrderNum" class="java.lang.String">
@@ -599,7 +599,9 @@
 				</box>
 			</frame>
 			<frame>
-				<reportElement x="340" y="389" width="199" height="39" uuid="2d76a347-8ee0-4554-93ac-7ab14af29082"/>
+				<reportElement x="340" y="389" width="199" height="40" uuid="2d76a347-8ee0-4554-93ac-7ab14af29082">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
 				<box>
 					<bottomPen lineWidth="1.0"/>
 				</box>
@@ -816,6 +818,9 @@
 			</textField>
 			<textField>
 				<reportElement x="34" y="448" width="492" height="40" uuid="b5cfda1c-48e0-4cae-a46b-b84490c0de53"/>
+				<textElement>
+					<font fontName="ArialPackageUtf"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{paymentOrderPurpose}]]></textFieldExpression>
 			</textField>
 		</band>
