@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2017-04-21T13:26:39 -->
+<!-- 2017-04-23T16:12:19 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28dfa3d5-2aaf-4ec2-9a29-4c0957e59ed3">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -19,6 +19,18 @@
 		<field name="NAME" class="java.lang.String"/>
 		<field name="COST" class="java.math.BigDecimal"/>
 	</subDataset>
+	<parameter name="recipientNameBank" class="java.lang.String"/>
+	<parameter name="numberINN" class="java.lang.String"/>
+	<parameter name="numberKPP" class="java.lang.String"/>
+	<parameter name="recipientName" class="java.lang.String"/>
+	<parameter name="recipientBIKBank" class="java.lang.String"/>
+	<parameter name="recipientBankAccount" class="java.lang.String"/>
+	<parameter name="recipientBankAccount2" class="java.lang.String"/>
+	<parameter name="documentNumber" class="java.lang.String"/>
+	<parameter name="providerName" class="java.lang.String"/>
+	<parameter name="buyerName" class="java.lang.String"/>
+	<parameter name="directorName" class="java.lang.String"/>
+	<parameter name="accounterName" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -29,7 +41,7 @@
 		<band height="801">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<frame>
-				<reportElement positionType="Float" x="0" y="0" width="490" height="30" uuid="c21b404d-ed6e-4911-a1a6-eaf775271405">
+				<reportElement positionType="Float" x="40" y="1" width="490" height="30" uuid="c21b404d-ed6e-4911-a1a6-eaf775271405">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
 				</reportElement>
 				<staticText>
@@ -43,7 +55,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="0" y="40" width="491" height="70" uuid="0976b863-04d1-4e89-baba-e4c813f2aba6"/>
+				<reportElement x="40" y="41" width="491" height="70" uuid="0976b863-04d1-4e89-baba-e4c813f2aba6"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -69,27 +81,17 @@
 						</textElement>
 						<text><![CDATA[Банк получателя]]></text>
 					</staticText>
-					<staticText>
-						<reportElement x="1" y="1" width="278" height="19" forecolor="#FC0703" uuid="93d7acd8-4449-4f77-b034-9a2a9c61518e">
-							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<textField>
+						<reportElement x="6" y="1" width="269" height="13" uuid="82493abe-dab6-4633-8f78-5847e33516a9">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						</reportElement>
 						<textElement>
 							<font fontName="ArialPackageUtf" size="9"/>
-							<paragraph firstLineIndent="5"/>
 						</textElement>
-						<text><![CDATA[ВТБ 24 (ЗАО) г.Москва]]></text>
-					</staticText>
-				</frame>
-				<frame>
-					<reportElement x="0" y="42" width="280" height="28" uuid="cf38c4fc-f346-4d85-b922-3d169b67e3cf"/>
-					<box>
-						<topPen lineWidth="1.0"/>
-						<leftPen lineWidth="1.0"/>
-						<bottomPen lineWidth="1.0"/>
-						<rightPen lineWidth="1.0"/>
-					</box>
+						<textFieldExpression><![CDATA[$P{recipientNameBank}]]></textFieldExpression>
+					</textField>
 				</frame>
 				<frame>
 					<reportElement x="280" y="0" width="40" height="12" uuid="a46201be-6f84-4d28-97e3-a19f4de88a83">
@@ -146,28 +148,6 @@
 						<text><![CDATA[Сч. №]]></text>
 					</staticText>
 				</frame>
-				<staticText>
-					<reportElement x="321" y="1" width="169" height="12" forecolor="#FA0905" uuid="a3a40734-3189-4dde-bc9b-71e763943352">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Middle">
-						<font fontName="ArialPackageUtf" size="9"/>
-						<paragraph firstLineIndent="5"/>
-					</textElement>
-					<text><![CDATA[44525716]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="320" y="14" width="170" height="15" forecolor="#FA0905" uuid="a4fd9b91-1525-483f-a119-7ee676aadc69">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Bottom">
-						<font fontName="ArialPackageUtf" size="9"/>
-						<paragraph firstLineIndent="5"/>
-					</textElement>
-					<text><![CDATA[30101810100000000112]]></text>
-				</staticText>
 				<frame>
 					<reportElement x="320" y="30" width="171" height="40" uuid="45fe8faa-4b5e-4c17-99cd-9cc69dee623a"/>
 					<box>
@@ -176,22 +156,24 @@
 						<bottomPen lineWidth="1.0"/>
 						<rightPen lineWidth="1.0"/>
 					</box>
-					<staticText>
-						<reportElement x="1" y="1" width="170" height="39" forecolor="#FA0905" uuid="f2e64152-a5c8-4600-8d71-0700f7151684">
-							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<textField>
+						<reportElement x="5" y="0" width="159" height="40" uuid="07c2e54e-b0cb-462d-a373-6b5524612779">
 							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement verticalAlignment="Top">
+						<textElement>
 							<font fontName="ArialPackageUtf" size="9"/>
-							<paragraph firstLineIndent="5"/>
 						</textElement>
-						<text><![CDATA[40702810471000007231]]></text>
-					</staticText>
+						<textFieldExpression><![CDATA[$P{recipientBankAccount2}]]></textFieldExpression>
+					</textField>
 				</frame>
 				<frame>
 					<reportElement x="0" y="42" width="280" height="28" uuid="3e72382f-336a-44c3-a4eb-c9d37f8304e3"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
 					<staticText>
 						<reportElement x="1" y="18" width="278" height="10" uuid="cb64c5c9-44af-4317-a87c-f641a713ef7a">
 							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -202,16 +184,15 @@
 						</textElement>
 						<text><![CDATA[Получатель]]></text>
 					</staticText>
-					<staticText>
-						<reportElement x="1" y="0" width="278" height="18" forecolor="#FF0400" uuid="559214ae-e1d2-4ec2-9c42-edc56da149b6">
-							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<textField>
+						<reportElement x="6" y="1" width="266" height="16" uuid="b4bdcb7e-8001-4c4e-9166-1afe72720a1b">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						</reportElement>
 						<textElement>
 							<font fontName="ArialPackageUtf" size="9"/>
-							<paragraph firstLineIndent="5"/>
 						</textElement>
-						<text><![CDATA[ООО "Система"]]></text>
-					</staticText>
+						<textFieldExpression><![CDATA[$P{recipientName}]]></textFieldExpression>
+					</textField>
 				</frame>
 				<frame>
 					<reportElement x="0" y="30" width="140" height="12" uuid="c42cf994-0bd9-41b2-9772-d4ef58f77266">
@@ -235,13 +216,15 @@
 						</textElement>
 						<text><![CDATA[ИНН]]></text>
 					</staticText>
-					<staticText>
-						<reportElement x="30" y="0" width="110" height="12" forecolor="#FC0905" uuid="997267e7-e898-483f-a51c-54d974ac89f3"/>
-						<textElement verticalAlignment="Middle">
+					<textField>
+						<reportElement x="30" y="1" width="110" height="10" uuid="fe8a4940-21df-4f4c-9609-46e40afe7a70">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement>
 							<font fontName="ArialPackageUtf" size="8"/>
 						</textElement>
-						<text><![CDATA[7710701721]]></text>
-					</staticText>
+						<textFieldExpression><![CDATA[$P{numberINN}]]></textFieldExpression>
+					</textField>
 				</frame>
 				<frame>
 					<reportElement x="140" y="30" width="140" height="12" uuid="4848679a-48c7-42e0-9f85-04d3f5dcc34c">
@@ -262,77 +245,96 @@
 						</textElement>
 						<text><![CDATA[КПП]]></text>
 					</staticText>
-					<staticText>
-						<reportElement x="35" y="0" width="103" height="12" forecolor="#FC0905" uuid="46fcd65a-f4e9-4b59-9350-5d974cf3050d">
-							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<textField>
+						<reportElement x="36" y="1" width="100" height="10" uuid="6e936ea9-7cc5-46de-a09a-096e38d6f40f">
+							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						</reportElement>
-						<textElement verticalAlignment="Middle">
+						<textElement>
 							<font fontName="ArialPackageUtf" size="8"/>
 						</textElement>
-						<text><![CDATA[771001001]]></text>
-					</staticText>
+						<textFieldExpression><![CDATA[$P{numberKPP}]]></textFieldExpression>
+					</textField>
 				</frame>
+				<textField>
+					<reportElement x="325" y="0" width="158" height="14" uuid="86e7e17b-52ef-44c9-b31f-4fb132f58f7f">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{recipientBIKBank}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="15" width="157" height="14" uuid="83ae753a-7d28-4a47-b22b-93383761dc14">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="ArialPackageUtf" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{recipientBankAccount}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<staticText>
-				<reportElement x="0" y="120" width="120" height="20" uuid="acd6bd91-c8a1-470f-bb54-749c2f6622a5"/>
+				<reportElement x="40" y="121" width="120" height="20" uuid="acd6bd91-c8a1-470f-bb54-749c2f6622a5"/>
 				<textElement>
 					<font fontName="ArialPackageUtf" size="14"/>
 					<paragraph firstLineIndent="5"/>
 				</textElement>
 				<text><![CDATA[Счет на оплату №]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="120" y="120" width="371" height="20" forecolor="#FC0905" uuid="f9b6cfaf-5e82-49da-bd67-a126a70c36c4"/>
-				<textElement>
-					<font fontName="ArialPackageUtf" size="14"/>
-				</textElement>
-				<text><![CDATA[1-НИ от 22 апреля 2011 г.]]></text>
-			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="0" y="146" width="490" height="1" uuid="1e8b08f8-f404-480c-9c6d-3dc32e96331a"/>
+				<reportElement x="40" y="147" width="490" height="1" uuid="1e8b08f8-f404-480c-9c6d-3dc32e96331a"/>
 				<graphicElement>
 					<pen lineWidth="2.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<frame>
-				<reportElement x="0" y="153" width="490" height="40" uuid="6454e339-98b0-4a23-9556-dfb7366b5bff"/>
+				<reportElement x="40" y="154" width="490" height="40" uuid="6454e339-98b0-4a23-9556-dfb7366b5bff"/>
 				<staticText>
-					<reportElement x="0" y="0" width="80" height="40" uuid="6365d61a-8284-44b3-8610-6eab0fc53631"/>
+					<reportElement x="0" y="0" width="60" height="40" uuid="6365d61a-8284-44b3-8610-6eab0fc53631"/>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="9"/>
 						<paragraph firstLineIndent="5"/>
 					</textElement>
 					<text><![CDATA[Поставщик]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="80" y="0" width="410" height="40" forecolor="#FC0703" uuid="95f46c34-70f5-4a49-8bb5-e3f4360fb4bd"/>
+				<textField>
+					<reportElement x="60" y="0" width="430" height="40" uuid="7cb9beed-7abc-42e3-a7d0-50ae742f0f7f">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
 					<textElement>
-						<font fontName="ArialPackageUtf" size="9"/>
+						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
-					<text><![CDATA[ООО "Система", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88]]></text>
-				</staticText>
+					<textFieldExpression><![CDATA[$P{providerName}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
-				<reportElement x="0" y="197" width="490" height="26" uuid="a88fa42e-8702-4cc2-8685-4a012670003f"/>
+				<reportElement x="40" y="198" width="490" height="26" uuid="a88fa42e-8702-4cc2-8685-4a012670003f"/>
 				<staticText>
-					<reportElement x="0" y="0" width="80" height="26" uuid="dae8c0f7-0532-42e6-b10b-aaf7dc195cb9"/>
+					<reportElement x="0" y="0" width="60" height="26" uuid="dae8c0f7-0532-42e6-b10b-aaf7dc195cb9"/>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="9"/>
 						<paragraph firstLineIndent="5"/>
 					</textElement>
 					<text><![CDATA[Покупатель]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="80" y="0" width="410" height="26" forecolor="#FF0905" uuid="4ed821be-e0fd-4534-be06-6d766aa1f047"/>
+				<textField>
+					<reportElement x="60" y="0" width="428" height="26" uuid="38c059e8-ed60-4d04-9125-983d3c8c3294">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
 					<textElement>
-						<font fontName="ArialPackageUtf" size="9"/>
-						<paragraph firstLineIndent="0"/>
+						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
-					<text><![CDATA[ООО "НЕРО ГРУП", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3]]></text>
-				</staticText>
+					<textFieldExpression><![CDATA[$P{buyerName}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
-				<reportElement x="0" y="230" width="490" height="64" uuid="ef44f774-6bbd-45cb-966f-d5d0de27db63"/>
+				<reportElement x="40" y="231" width="490" height="64" uuid="ef44f774-6bbd-45cb-966f-d5d0de27db63"/>
 				<box>
 					<topPen lineWidth="2.0"/>
 					<leftPen lineWidth="2.0"/>
@@ -508,7 +510,7 @@
 				</frame>
 			</frame>
 			<frame>
-				<reportElement x="340" y="245" width="70" height="49" uuid="89f21b9a-888b-4517-8a9c-cca08e053919"/>
+				<reportElement x="380" y="246" width="70" height="49" uuid="89f21b9a-888b-4517-8a9c-cca08e053919"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -525,7 +527,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="410" y="245" width="80" height="49" uuid="b9a2fb63-e13f-4e62-88bf-5f5a7fe05466"/>
+				<reportElement x="450" y="246" width="80" height="49" uuid="b9a2fb63-e13f-4e62-88bf-5f5a7fe05466"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -544,7 +546,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="300" y="300" width="191" height="14" uuid="44162297-bca2-47f3-953f-0563af6e0565">
+				<reportElement x="340" y="301" width="191" height="14" uuid="44162297-bca2-47f3-953f-0563af6e0565">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<staticText>
@@ -566,7 +568,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="300" y="328" width="191" height="14" uuid="082b8467-6a79-4931-a425-066395b0b24b">
+				<reportElement x="340" y="329" width="191" height="14" uuid="082b8467-6a79-4931-a425-066395b0b24b">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<staticText>
@@ -588,7 +590,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="300" y="314" width="190" height="14" uuid="ba3af5c4-d6ad-4ed9-b7d4-4d2e747e7da7">
+				<reportElement x="340" y="315" width="190" height="14" uuid="ba3af5c4-d6ad-4ed9-b7d4-4d2e747e7da7">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<staticText>
@@ -610,7 +612,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="0" y="342" width="490" height="14" uuid="44bc1888-a67c-487d-b82d-0395cf786c90"/>
+				<reportElement x="40" y="343" width="490" height="14" uuid="44bc1888-a67c-487d-b82d-0395cf786c90"/>
 				<staticText>
 					<reportElement x="0" y="0" width="90" height="14" uuid="abb18497-33e9-489c-9fcc-a69dac0d7f8e"/>
 					<textElement verticalAlignment="Middle">
@@ -630,7 +632,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="0" y="356" width="490" height="14" uuid="c0603844-e04a-4a00-808a-a3f7f4f954ab"/>
+				<reportElement x="40" y="357" width="490" height="14" uuid="c0603844-e04a-4a00-808a-a3f7f4f954ab"/>
 				<staticText>
 					<reportElement x="0" y="0" width="488" height="14" forecolor="#FC0703" uuid="d1179f2d-123f-4d0e-aa1b-6606843254e6"/>
 					<textElement>
@@ -640,13 +642,13 @@
 				</staticText>
 			</frame>
 			<line direction="BottomUp">
-				<reportElement x="0" y="375" width="490" height="1" uuid="003c7f52-96ea-4b89-94e4-5c4181072544"/>
+				<reportElement x="40" y="376" width="490" height="1" uuid="003c7f52-96ea-4b89-94e4-5c4181072544"/>
 				<graphicElement>
 					<pen lineWidth="2.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<frame>
-				<reportElement x="0" y="390" width="260" height="14" uuid="5b2f218a-8811-4268-b919-728e5e235b65">
+				<reportElement x="40" y="391" width="260" height="14" uuid="5b2f218a-8811-4268-b919-728e5e235b65">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<staticText>
@@ -662,18 +664,19 @@
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 				</line>
-				<staticText>
-					<reportElement x="80" y="0" width="179" height="14" forecolor="#FC0905" uuid="d51ab04f-000f-4a57-8bcd-171f9a38a2f1">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<textField>
+					<reportElement x="81" y="0" width="179" height="14" uuid="b3aefc16-17a0-4b90-a0a0-f40114b7f9ca">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="ArialPackageUtf" size="9"/>
+					<textElement textAlignment="Right">
+						<font fontName="ArialPackageUtf"/>
 					</textElement>
-					<text><![CDATA[Кожевин Д.А.]]></text>
-				</staticText>
+					<textFieldExpression><![CDATA[$P{directorName}]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
-				<reportElement x="280" y="390" width="210" height="14" uuid="94e156f9-8d4b-4c33-ab68-00c66c093f85"/>
+				<reportElement x="320" y="391" width="210" height="14" uuid="94e156f9-8d4b-4c33-ab68-00c66c093f85"/>
 				<staticText>
 					<reportElement x="0" y="0" width="50" height="14" uuid="18e783f6-dc7f-4db6-a1f8-01d098e7712a"/>
 					<textElement verticalAlignment="Middle">
@@ -681,21 +684,30 @@
 					</textElement>
 					<text><![CDATA[Бухгалтер]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="50" y="0" width="159" height="14" forecolor="#FF0703" uuid="22a61be7-fa5d-4c1f-9b9c-6bd7e9dab738">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="ArialPackageUtf" size="9"/>
-					</textElement>
-					<text><![CDATA[Иванова И.О.]]></text>
-				</staticText>
 				<line>
 					<reportElement x="50" y="13" width="159" height="1" uuid="9fc611eb-36d5-4caf-a70d-2cad813ed049">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 				</line>
+				<textField>
+					<reportElement x="51" y="0" width="158" height="14" uuid="1284ef3f-f8e7-4a2c-b182-f0e43808b5d4">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="ArialPackageUtf"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{accounterName}]]></textFieldExpression>
+				</textField>
 			</frame>
+			<textField>
+				<reportElement x="160" y="121" width="350" height="20" uuid="8ba93bc4-f413-4071-83cb-46781ed41707"/>
+				<textElement>
+					<font fontName="ArialPackageUtf" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{documentNumber}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 </jasperReport>
