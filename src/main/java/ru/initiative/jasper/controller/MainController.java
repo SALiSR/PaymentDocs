@@ -82,6 +82,11 @@ public class MainController {
         reportParams.put("buyerName", "ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3");
         reportParams.put("directorName", "Кожевин Д.А.");
         reportParams.put("accounterName", "Иванова И.О.");
+        reportParams.put("countPosition", " 1");
+        reportParams.put("totalSum", "700 000,00");
+        reportParams.put("totalSumString", "Семьсот тысяч рублей 00 копеек");
+        reportParams.put("totalSumNDS", "106 779,70");
+
 
         return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
     }
