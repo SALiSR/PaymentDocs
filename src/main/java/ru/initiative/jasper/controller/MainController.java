@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.initiative.jasper.config.TemplateFileNameConfiguration;
+import ru.initiative.jasper.dto.DtoInvoice;
 import ru.initiative.jasper.dto.DtoOrder;
 import ru.initiative.jasper.service.TemplateProcessing;
 import ru.initiative.jasper.utils.NumbersToWords;
@@ -33,6 +34,12 @@ public class MainController {
         return "mainpage";
     }
 
+    @RequestMapping("/invoicepage")
+    public String invoicePage(Model model) {
+        model.addAttribute("invoice", new DtoInvoice());
+        return "invoicepage";
+    }
+
     @RequestMapping(value ="/order", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
     @ResponseBody
     public byte[] order(Model model, HttpServletRequest request, @ModelAttribute("dtoOrder") DtoOrder dtoOrder) {
@@ -42,9 +49,60 @@ public class MainController {
         return processing.doTemplateFilled(fileNameConfiguration.getOrder(), request, reportParams);
     }
 
-    @RequestMapping(value ="/invoice", method = RequestMethod.GET, produces = "application/pdf", consumes="*/*")
+    @RequestMapping(value ="/invoice", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
     @ResponseBody
-    public byte[] invoice(HttpServletRequest request) {
+    public byte[] invoice(HttpServletRequest request, @ModelAttribute("dtoInvoice") DtoInvoice dtoInvoice) {
+/*        Map<String, Object> reportParams = new HashMap<String, Object>();
+        reportParams.put("recipientNameBank", "АО \"ВТБ 24\" г.Москва");
+        reportParams.put("numberINN", "7710701721");
+        reportParams.put("numberKPP", "771001001");
+        reportParams.put("recipientName", "ООО \"Система\"");
+        reportParams.put("recipientBIKBank", "44525716");
+        reportParams.put("recipientBankAccount", "30101810100000000112");
+        reportParams.put("recipientBankAccount2", "40702810471000007231");
+
+        reportParams.put("documentNumber", "1-НИ от 22 апреля 2011 г.");
+
+        reportParams.put("providerName", "ООО \"Система\", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88");
+        reportParams.put("buyerName", "ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3");
+
+        reportParams.put("directorName", "Кожевин Д.А.");
+        reportParams.put("accounterName", "Иванова И.О.");
+        reportParams.put("countPosition", " 1");
+        reportParams.put("totalSum", "700 000,00");
+        reportParams.put("totalSumString", "Семьсот тысяч рублей 00 копеек");
+        reportParams.put("totalSumNDS", "106 779,70");*/
+        Map<String, Object> reportParams = fillTheInvoice(dtoInvoice);
+
+        return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
+    }
+
+    private Map<String, Object> fillTheInvoice(DtoInvoice dtoInvoice){
+        Map<String, Object> reportParams = new HashMap<String, Object>();
+        reportParams.put("recipientNameBank", dtoInvoice.getRecipientNameBank());
+        reportParams.put("numberINN", dtoInvoice.getNumberINN());
+        reportParams.put("numberKPP", dtoInvoice.getNumberKPP());
+        reportParams.put("recipientName", dtoInvoice.getRecipientName());
+        reportParams.put("recipientBIKBank", dtoInvoice.getRecipientBIKBank());
+        reportParams.put("recipientBankAccount", dtoInvoice.getRecipientBankAccount());
+        reportParams.put("recipientBankAccount2", dtoInvoice.getRecipientBankAccount2());
+
+        reportParams.put("documentNumber", dtoInvoice.getDocumentNumber());
+
+        reportParams.put("providerName", dtoInvoice.getProviderName());
+        reportParams.put("buyerName", dtoInvoice.getBuyerName());
+
+        reportParams.put("directorName", dtoInvoice.getDirectorName());
+        reportParams.put("accounterName", dtoInvoice.getAccounterName());
+        reportParams.put("countPosition", dtoInvoice.getCountPosition());
+        reportParams.put("totalSum", dtoInvoice.getTotalSum());
+        reportParams.put("totalSumString", dtoInvoice.getTotalSumString());
+        reportParams.put("totalSumNDS", dtoInvoice.getTotalSumNDS());
+
+        return reportParams;
+    }
+
+    private Map<String, Object> fillTheInvoiceTestData(DtoInvoice dtoInvoice){
         Map<String, Object> reportParams = new HashMap<String, Object>();
         reportParams.put("recipientNameBank", "АО \"ВТБ 24\" г.Москва");
         reportParams.put("numberINN", "7710701721");
@@ -53,18 +111,20 @@ public class MainController {
         reportParams.put("recipientBIKBank", "44525716");
         reportParams.put("recipientBankAccount", "30101810100000000112");
         reportParams.put("recipientBankAccount2", "40702810471000007231");
+
         reportParams.put("documentNumber", "1-НИ от 22 апреля 2011 г.");
+
         reportParams.put("providerName", "ООО \"Система\", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88");
         reportParams.put("buyerName", "ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3");
+
         reportParams.put("directorName", "Кожевин Д.А.");
         reportParams.put("accounterName", "Иванова И.О.");
         reportParams.put("countPosition", " 1");
         reportParams.put("totalSum", "700 000,00");
-        reportParams.put("totalSumString", "Семьсот тысяч рублей 00 копеек");
         reportParams.put("totalSumNDS", "106 779,70");
+        reportParams.put("totalSumString", new NumbersToWords(0, "700000.00").printResult());
 
-
-        return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
+        return reportParams;
     }
 
     private Map<String, Object> fillTheOrder(DtoOrder dtoOrder){

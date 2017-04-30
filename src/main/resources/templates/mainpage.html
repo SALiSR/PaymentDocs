@@ -30,9 +30,9 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><span class="glyphicon"></span>Платежное поручение</a></li>
-                <li><a href="#about"><span class="glyphicon"></span> About</a></li>
-                <li><a href="#contact"><span class="glyphicon"></span> Contact</a></li>
+                <li class="active"><a th:href="@{/mainpage}"><span class="glyphicon"></span>Платежное поручение</a></li>
+                <li><a th:href="@{/invoicepage}"><span class="glyphicon"></span>Счет на оплату</a></li>
+                <li><a href="#contact"><span class="glyphicon"></span>Документ с графиками</a></li>
             </ul>
         </div>
     </div>
@@ -162,7 +162,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-md-9">
-                            <input type="text" id="recipientAccount" class="form-control" th:field="*{recipientAccount}"/>
+                            <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}"/>
                         </div>
                     </div>
 
@@ -187,7 +187,16 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-sm-9">
-                            <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}"/>
+                            <input type="text" id="recipientAccount" class="form-control" th:field="*{recipientAccount}"/>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Назначение платежа:</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="paymentOrderPurpose" name="message" placeholder="Назначение платежа"
+                                      rows="3" th:field="*{paymentOrderPurpose}"></textarea>
                         </div>
                     </div>
 
@@ -195,7 +204,7 @@
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
                             <div class="pull-right">
-                                <button id="fillTestData" class="btn btn-primary">Заполнить  тестовыми  данными</button>
+                                <a href="#" id="fillTestDataOrder" class="btn  btn-primary">Заполнить  тестовыми  данными</a>
                                 <button type="submit" class="btn btn-primary">Получить PDF</button>
                             </div>
                         </div>
