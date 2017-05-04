@@ -9,15 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.initiative.jasper.config.TemplateFileNameConfiguration;
 import ru.initiative.jasper.dto.DtoInvoice;
+import ru.initiative.jasper.dto.DtoInvoiceListSupport;
 import ru.initiative.jasper.dto.DtoOrder;
 import ru.initiative.jasper.service.TemplateProcessing;
 import ru.initiative.jasper.utils.NumbersToWords;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
 @Controller
 public class MainController {
@@ -37,6 +35,7 @@ public class MainController {
     @RequestMapping("/invoicepage")
     public String invoicePage(Model model) {
         model.addAttribute("invoice", new DtoInvoice());
+        model.addAttribute("theTable", getDtoInvoiceListSupport());
         return "invoicepage";
     }
 
@@ -52,28 +51,8 @@ public class MainController {
     @RequestMapping(value ="/invoice", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
     @ResponseBody
     public byte[] invoice(HttpServletRequest request, @ModelAttribute("dtoInvoice") DtoInvoice dtoInvoice) {
-/*        Map<String, Object> reportParams = new HashMap<String, Object>();
-        reportParams.put("recipientNameBank", "АО \"ВТБ 24\" г.Москва");
-        reportParams.put("numberINN", "7710701721");
-        reportParams.put("numberKPP", "771001001");
-        reportParams.put("recipientName", "ООО \"Система\"");
-        reportParams.put("recipientBIKBank", "44525716");
-        reportParams.put("recipientBankAccount", "30101810100000000112");
-        reportParams.put("recipientBankAccount2", "40702810471000007231");
 
-        reportParams.put("documentNumber", "1-НИ от 22 апреля 2011 г.");
-
-        reportParams.put("providerName", "ООО \"Система\", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88");
-        reportParams.put("buyerName", "ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3");
-
-        reportParams.put("directorName", "Кожевин Д.А.");
-        reportParams.put("accounterName", "Иванова И.О.");
-        reportParams.put("countPosition", " 1");
-        reportParams.put("totalSum", "700 000,00");
-        reportParams.put("totalSumString", "Семьсот тысяч рублей 00 копеек");
-        reportParams.put("totalSumNDS", "106 779,70");*/
         Map<String, Object> reportParams = fillTheInvoice(dtoInvoice);
-
         return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
     }
 
@@ -185,5 +164,43 @@ public class MainController {
         reportParams.put("paymentOrderPurpose", "УИН ... Налог на доходы физических лиц за февраль 2017");
 
         return reportParams;
+    }
+
+    private List<DtoInvoiceListSupport> getDtoInvoiceListSupport(){
+        List<DtoInvoiceListSupport> invoiceListSupports = new ArrayList<>();
+
+        DtoInvoiceListSupport invoiceListSupport = new DtoInvoiceListSupport();
+        invoiceListSupport.setGoods("Выполненные работы по вводу в эксплуатацию\n" +
+                "систем отопления, в т.ч. корректировка и\n" +
+                "согласование проектной документации по договору\n" +
+                "NoП-1/2011 от 10.04.2011г.");
+        invoiceListSupport.setNumber(10);
+        invoiceListSupport.setUnit("шт.");
+        invoiceListSupport.setPrice("70 000.00");
+        invoiceListSupport.setTotal("700 000,00");
+        
+        DtoInvoiceListSupport invoiceListSupport1 = new DtoInvoiceListSupport();
+        invoiceListSupport1.setGoods("Разработка ПО\n" +
+                "по договору\n" +
+                "КоП-1/2013 от 11.05.2016г.");
+        invoiceListSupport1.setNumber(8);
+        invoiceListSupport1.setUnit("шт.");
+        invoiceListSupport1.setPrice("60 000.00");
+        invoiceListSupport1.setTotal("480 000,00");
+
+        DtoInvoiceListSupport invoiceListSupport2 = new DtoInvoiceListSupport();
+        invoiceListSupport2.setGoods("Выполненные работы по вводу в эксплуатацию\n" +
+                "центра обработки данных, договор\n" +
+                "НоП-1/2013 от 08.09.2014г.");
+        invoiceListSupport2.setNumber(5);
+        invoiceListSupport2.setUnit("шт.");
+        invoiceListSupport2.setPrice("70 000.00");
+        invoiceListSupport2.setTotal("350 000,00");
+
+        invoiceListSupports.add(invoiceListSupport);
+        invoiceListSupports.add(invoiceListSupport1);
+        invoiceListSupports.add(invoiceListSupport2);
+
+        return invoiceListSupports;
     }
 }

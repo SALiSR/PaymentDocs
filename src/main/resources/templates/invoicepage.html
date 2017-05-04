@@ -176,6 +176,27 @@
                             </div>
                         </div>
 
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Товары (работы, услуги)</th>
+                                <th>Кол-во</th>
+                                <th>Ед.</th>
+                                <th>Цена</th>
+                                <th>Сумма</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="tbl : ${theTable}">
+                                <td th:text="${tbl.goods}">A Smoke Test'</td>
+                                <td th:text="${tbl.number}">A Smoke Test'</td>
+                                <td th:text="${tbl.unit}">A Smoke Test'</td>
+                                <td th:text="${tbl.price}">A Smoke Test'</td>
+                                <td th:text="${tbl.total}">A Smoke Test'</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <div class="pull-right">
