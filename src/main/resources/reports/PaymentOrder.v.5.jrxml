@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2017-05-04T18:44:27 -->
+<!-- 2017-05-05T14:33:29 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PO5" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02787c0f-a9d2-40e5-ac54-a47c5bce23d9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="paymentOrderNum" class="java.lang.String">
@@ -151,16 +151,20 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<staticText>
-					<reportElement x="2" y="1" width="31" height="14" uuid="effc9d9b-7b6c-411a-80f4-48a986a844a8"/>
-					<textElement>
+					<reportElement x="2" y="1" width="31" height="12" uuid="effc9d9b-7b6c-411a-80f4-48a986a844a8">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
 						<font fontName="ArialPackageUtf" size="10"/>
 					</textElement>
 					<text><![CDATA[ИНН]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="35" y="1" width="100" height="13" uuid="032f0648-bd02-46fc-a610-25c04065268b"/>
-					<textElement>
-						<font fontName="ArialPackageUtf" size="11"/>
+					<reportElement x="35" y="1" width="100" height="12" uuid="032f0648-bd02-46fc-a610-25c04065268b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{payerINN}]]></textFieldExpression>
 				</textField>
@@ -173,15 +177,17 @@
 				</box>
 				<staticText>
 					<reportElement x="3" y="1" width="26" height="12" uuid="bec16a9d-f8a7-4e47-ba54-ce52738fec18"/>
-					<textElement>
+					<textElement verticalAlignment="Middle">
 						<font fontName="ArialPackageUtf" size="10"/>
 					</textElement>
 					<text><![CDATA[КПП]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="27" y="1" width="107" height="13" uuid="2637d8b3-6aed-4954-a6d7-5a1e6cf6b45b"/>
-					<textElement>
-						<font fontName="ArialPackageUtf" size="11"/>
+					<reportElement x="27" y="1" width="107" height="12" uuid="2637d8b3-6aed-4954-a6d7-5a1e6cf6b45b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ArialPackageUtf" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{payerKPP}]]></textFieldExpression>
 				</textField>
@@ -247,7 +253,9 @@
 					<text><![CDATA[Плательщик]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="3" y="2" width="267" height="48" uuid="eafb5d63-cecd-4cae-936d-a165c567f38e"/>
+					<reportElement x="2" y="2" width="267" height="48" uuid="eafb5d63-cecd-4cae-936d-a165c567f38e">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
@@ -296,9 +304,10 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<staticText>
-					<reportElement x="1" y="34" width="90" height="15" uuid="b0344bd6-2b5b-49c9-8b5e-59eebf9a59f6">
+					<reportElement x="2" y="34" width="90" height="15" uuid="b0344bd6-2b5b-49c9-8b5e-59eebf9a59f6">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="10"/>
@@ -306,7 +315,9 @@
 					<text><![CDATA[Банк плательщика]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="3" y="2" width="267" height="30" uuid="43b08353-51fd-40f5-adaf-d068b2570606"/>
+					<reportElement x="2" y="2" width="267" height="30" uuid="43b08353-51fd-40f5-adaf-d068b2570606">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
@@ -410,9 +421,10 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<staticText>
-					<reportElement x="1" y="50" width="91" height="15" uuid="5196e639-ea85-4c6f-8bf7-938007ea109a">
+					<reportElement x="2" y="50" width="91" height="15" uuid="5196e639-ea85-4c6f-8bf7-938007ea109a">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="10"/>
@@ -420,7 +432,9 @@
 					<text><![CDATA[Получатель]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="3" y="2" width="266" height="39" uuid="28999cb3-d91e-416c-87cf-3252a8b5394d"/>
+					<reportElement x="2" y="2" width="266" height="39" uuid="28999cb3-d91e-416c-87cf-3252a8b5394d">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
@@ -613,7 +627,7 @@
 							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement>
+						<textElement verticalAlignment="Middle">
 							<font fontName="ArialPackageUtf"/>
 						</textElement>
 						<text><![CDATA[Вид оп.]]></text>
@@ -631,20 +645,20 @@
 							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement>
+						<textElement verticalAlignment="Middle">
 							<font fontName="ArialPackageUtf"/>
 						</textElement>
 						<text><![CDATA[Наз. пл.]]></text>
 					</staticText>
 				</frame>
 				<staticText>
-					<reportElement x="3" y="27" width="35" height="13" uuid="1865ad52-e6f8-45c8-9d3d-033f503cff72">
+					<reportElement x="3" y="28" width="35" height="12" uuid="1865ad52-e6f8-45c8-9d3d-033f503cff72">
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
-					<textElement>
+					<textElement verticalAlignment="Middle">
 						<font fontName="ArialPackageUtf"/>
 					</textElement>
 					<text><![CDATA[Код]]></text>
@@ -680,26 +694,26 @@
 							<bottomPen lineWidth="1.0"/>
 						</box>
 						<staticText>
-							<reportElement x="10" y="0" width="50" height="13" uuid="5ebfb4ed-9e81-4156-8f55-17d8fea91d60">
+							<reportElement x="10" y="0" width="50" height="12" uuid="5ebfb4ed-9e81-4156-8f55-17d8fea91d60">
 								<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 								<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 							</reportElement>
-							<textElement>
+							<textElement verticalAlignment="Top">
 								<font fontName="ArialPackageUtf"/>
 							</textElement>
 							<text><![CDATA[Срок плат.]]></text>
 						</staticText>
 					</frame>
 					<staticText>
-						<reportElement x="10" y="13" width="50" height="13" uuid="ca4ae653-26cb-46ec-8af0-ed28c14ba80f">
+						<reportElement x="10" y="14" width="50" height="12" uuid="ca4ae653-26cb-46ec-8af0-ed28c14ba80f">
 							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement>
+						<textElement verticalAlignment="Top">
 							<font fontName="ArialPackageUtf"/>
 						</textElement>
 						<text><![CDATA[Очер. плат.]]></text>
@@ -711,7 +725,7 @@
 							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement>
+						<textElement verticalAlignment="Middle">
 							<font fontName="ArialPackageUtf"/>
 						</textElement>
 						<text><![CDATA[Рез. поле]]></text>
@@ -743,7 +757,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<staticText>
-					<reportElement x="1" y="34" width="90" height="13" uuid="45d7a9e0-9065-4fbf-b6cf-065e665da95c">
+					<reportElement x="2" y="34" width="90" height="13" uuid="45d7a9e0-9065-4fbf-b6cf-065e665da95c">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -755,7 +769,9 @@
 					<text><![CDATA[Банк получателя]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="4" y="1" width="265" height="30" uuid="7cbbf470-056c-4aab-aa79-acb9ebe40b8d"/>
+					<reportElement x="2" y="1" width="265" height="30" uuid="7cbbf470-056c-4aab-aa79-acb9ebe40b8d">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
 					<textElement>
 						<font fontName="ArialPackageUtf" size="11"/>
 					</textElement>
@@ -861,7 +877,7 @@
 			<frame>
 				<reportElement x="31" y="488" width="509" height="30" uuid="beef35ff-fb4b-4e08-8568-bb7936cc63ee"/>
 				<staticText>
-					<reportElement x="1" y="16" width="100" height="13" uuid="a88af36d-b589-4a41-b18c-c5a6f96ad427">
+					<reportElement x="2" y="16" width="100" height="13" uuid="a88af36d-b589-4a41-b18c-c5a6f96ad427">
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -911,7 +927,9 @@
 				<textFieldExpression><![CDATA[$P{paymentOrderTypePayment}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="34" y="448" width="492" height="40" uuid="b5cfda1c-48e0-4cae-a46b-b84490c0de53"/>
+				<reportElement x="33" y="448" width="492" height="40" uuid="b5cfda1c-48e0-4cae-a46b-b84490c0de53">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<textElement>
 					<font fontName="ArialPackageUtf"/>
 				</textElement>
