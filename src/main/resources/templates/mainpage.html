@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a th:href="@{/mainpage}"><span class="glyphicon"></span>Платежное поручение</a></li>
                 <li><a th:href="@{/invoicepage}"><span class="glyphicon"></span>Счет на оплату</a></li>
-                <li><a href="#contact"><span class="glyphicon"></span>Документ с графиками</a></li>
+                <li><a th:href="@{/chartspage}"><span class="glyphicon"></span>Документ с графиками</a></li>
             </ul>
         </div>
     </div>
@@ -204,7 +204,7 @@
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
                             <div class="pull-right">
-                                <a href="#" id="fillTestDataOrder" class="btn  btn-primary">Заполнить  тестовыми  данными</a>
+                                <a href="#a" id="fillTestDataOrder" class="btn  btn-primary">Заполнить  тестовыми  данными</a>
                                 <button type="submit" class="btn btn-primary">Получить PDF</button>
                             </div>
                         </div>

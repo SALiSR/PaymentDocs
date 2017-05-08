@@ -1,5 +1,6 @@
 package ru.initiative.jasper.controller;
 
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,11 +28,16 @@ public class MainController {
     TemplateFileNameConfiguration fileNameConfiguration;
 
     @RequestMapping("/mainpage")
-    public String greeting2(Model model) {
+    public String mainPage(Model model) {
         model.addAttribute("order", new DtoOrder());
         return "mainpage";
     }
 
+    @RequestMapping("/chartspage")
+    public String chartpage(Model model) {
+        model.addAttribute("order", new DtoOrder());
+        return "chartspage";
+    }
     @RequestMapping("/invoicepage")
     public String invoicePage(Model model) {
         model.addAttribute("invoice", new DtoInvoice());
@@ -77,6 +83,7 @@ public class MainController {
         reportParams.put("totalSum", dtoInvoice.getTotalSum());
         reportParams.put("totalSumString", dtoInvoice.getTotalSumString());
         reportParams.put("totalSumNDS", dtoInvoice.getTotalSumNDS());
+        reportParams.put("invoiceTableList", new JRBeanCollectionDataSource(getDtoInvoiceListSupport()));
 
         return reportParams;
     }
@@ -174,7 +181,7 @@ public class MainController {
                 "систем отопления, в т.ч. корректировка и\n" +
                 "согласование проектной документации по договору\n" +
                 "NoП-1/2011 от 10.04.2011г.");
-        invoiceListSupport.setNumber(10);
+        invoiceListSupport.setNumber("10");
         invoiceListSupport.setUnit("шт.");
         invoiceListSupport.setPrice("70 000.00");
         invoiceListSupport.setTotal("700 000,00");
@@ -183,7 +190,7 @@ public class MainController {
         invoiceListSupport1.setGoods("Разработка ПО\n" +
                 "по договору\n" +
                 "КоП-1/2013 от 11.05.2016г.");
-        invoiceListSupport1.setNumber(8);
+        invoiceListSupport1.setNumber("8");
         invoiceListSupport1.setUnit("шт.");
         invoiceListSupport1.setPrice("60 000.00");
         invoiceListSupport1.setTotal("480 000,00");
@@ -192,7 +199,7 @@ public class MainController {
         invoiceListSupport2.setGoods("Выполненные работы по вводу в эксплуатацию\n" +
                 "центра обработки данных, договор\n" +
                 "НоП-1/2013 от 08.09.2014г.");
-        invoiceListSupport2.setNumber(5);
+        invoiceListSupport2.setNumber("5");
         invoiceListSupport2.setUnit("шт.");
         invoiceListSupport2.setPrice("70 000.00");
         invoiceListSupport2.setTotal("350 000,00");

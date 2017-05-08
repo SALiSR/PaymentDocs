@@ -8,7 +8,7 @@ public class DtoInvoiceListSupport {
     private String goods;
 
     /*Кол-во*/
-    private Integer number;
+    private String number;
 
     /*Ед.*/
     private String unit;
@@ -27,11 +27,11 @@ public class DtoInvoiceListSupport {
         this.goods = goods;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

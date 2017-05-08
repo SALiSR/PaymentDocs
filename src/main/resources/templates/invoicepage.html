@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/mainpage}"><span class="glyphicon"></span>Платежное поручение</a></li>
                 <li class="active"><a th:href="@{/invoicepage}"><span class="glyphicon"></span>Счет на оплату</a></li>
-                <li><a href="#contact"><span class="glyphicon"></span>Документ с графиками</a></li>
+                <li><a th:href="@{/chartspage}"><span class="glyphicon"></span>Документ с графиками</a></li>
             </ul>
         </div>
     </div>
@@ -43,6 +43,30 @@
         <p class="lead">Use this document as a way to quickly start any new project with a beautiful image header.<br/> All you get is this text, a navbar, a header, and a mostly barebones HTML document.</p>
     </div>-->
     <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Товары (работы, услуги)</th>
+                    <th>Кол-во</th>
+                    <th>Ед.</th>
+                    <th>Цена</th>
+                    <th>Сумма</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tbl : ${theTable}">
+                    <td th:text="${tbl.goods}">A Smoke Test'</td>
+                    <td th:text="${tbl.number}">A Smoke Test'</td>
+                    <td th:text="${tbl.unit}">A Smoke Test'</td>
+                    <td th:text="${tbl.price}">A Smoke Test'</td>
+                    <td th:text="${tbl.total}">A Smoke Test'</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
         <div class="row">
             <!--<div class="col-md-4 col-md-offset-4">-->
             <div class="col-md-6 col-md-offset-3">
@@ -175,32 +199,10 @@
                                 <input type="text" id="totalSum" class="form-control" th:field="*{totalSum}" />
                             </div>
                         </div>
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Товары (работы, услуги)</th>
-                                <th>Кол-во</th>
-                                <th>Ед.</th>
-                                <th>Цена</th>
-                                <th>Сумма</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="tbl : ${theTable}">
-                                <td th:text="${tbl.goods}">A Smoke Test'</td>
-                                <td th:text="${tbl.number}">A Smoke Test'</td>
-                                <td th:text="${tbl.unit}">A Smoke Test'</td>
-                                <td th:text="${tbl.price}">A Smoke Test'</td>
-                                <td th:text="${tbl.total}">A Smoke Test'</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <div class="pull-right">
-                                    <a href="#" id="fillTestDataInvoice" class="btn  btn-primary">Заполнить  тестовыми  данными</a>
+                                    <a href="#a" id="fillTestDataInvoice" class="btn  btn-primary">Заполнить  тестовыми  данными</a>
                                     <button type="submit" class="btn btn-primary">Получить PDF</button>
                                 </div>
                             </div>
