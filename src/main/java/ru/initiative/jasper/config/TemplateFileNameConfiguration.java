@@ -8,12 +8,16 @@ import org.springframework.core.io.Resource;
 public class TemplateFileNameConfiguration {
     private static final String ORDER = "PaymentOrder.v.5.jrxml";
     private static final String INVOICE = "Invoice.jrxml";
+    private static final String CHARTS = "charts.jrxml";
 
     @Value(value = "classpath:reports/" + ORDER)
     private Resource order;
 
     @Value(value = "classpath:reports/" + INVOICE)
     private Resource invoice;
+
+    @Value(value = "classpath:reports/" + CHARTS)
+    private Resource charts;
 
     public Resource getOrder() {
         return order;
@@ -29,5 +33,13 @@ public class TemplateFileNameConfiguration {
 
     public void setInvoice(Resource invoice) {
         this.invoice = invoice;
+    }
+
+    public Resource getCharts() {
+        return charts;
+    }
+
+    public void setCharts(Resource charts) {
+        this.charts = charts;
     }
 }

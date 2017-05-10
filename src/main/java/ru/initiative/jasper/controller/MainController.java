@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.initiative.jasper.config.TemplateFileNameConfiguration;
-import ru.initiative.jasper.dto.DtoInvoice;
-import ru.initiative.jasper.dto.DtoInvoiceListSupport;
-import ru.initiative.jasper.dto.DtoOrder;
+import ru.initiative.jasper.dto.*;
 import ru.initiative.jasper.service.TemplateProcessing;
 import ru.initiative.jasper.utils.NumbersToWords;
 
@@ -33,11 +31,6 @@ public class MainController {
         return "mainpage";
     }
 
-    @RequestMapping("/chartspage")
-    public String chartpage(Model model) {
-        model.addAttribute("order", new DtoOrder());
-        return "chartspage";
-    }
     @RequestMapping("/invoicepage")
     public String invoicePage(Model model) {
         model.addAttribute("invoice", new DtoInvoice());
@@ -51,7 +44,7 @@ public class MainController {
 
         Map<String, Object> reportParams = fillTheOrder(dtoOrder);
         //Map<String, Object> reportParams = fillTheOrderTestData();
-        return processing.doTemplateFilled(fileNameConfiguration.getOrder(), request, reportParams);
+        return processing.doTemplateFilled(fileNameConfiguration.getOrder(), reportParams);
     }
 
     @RequestMapping(value ="/invoice", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
@@ -59,7 +52,21 @@ public class MainController {
     public byte[] invoice(HttpServletRequest request, @ModelAttribute("dtoInvoice") DtoInvoice dtoInvoice) {
 
         Map<String, Object> reportParams = fillTheInvoice(dtoInvoice);
-        return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), request, reportParams);
+        return processing.doTemplateFilled(fileNameConfiguration.getInvoice(), reportParams);
+    }
+
+    @RequestMapping("/chartspage")
+    public String chartpage(Model model) {
+        model.addAttribute("order", new DtoOrder());
+        return "chartspage";
+    }
+
+    @RequestMapping(value="/charts", method = RequestMethod.POST, produces = "application/pdf", consumes="*/*")
+    @ResponseBody
+    public byte[] charts(Model model) {
+
+        Map<String, Object> reportParams = fillTheCharts(getDtoCharts());
+        return processing.doTemplateFilled(fileNameConfiguration.getCharts(), reportParams);
     }
 
     private Map<String, Object> fillTheInvoice(DtoInvoice dtoInvoice){
@@ -209,5 +216,91 @@ public class MainController {
         invoiceListSupports.add(invoiceListSupport2);
 
         return invoiceListSupports;
+    }
+
+    private DtoCharts getDtoCharts(){
+        DtoCharts charts = new DtoCharts();
+
+        DtoChartsData chartsData = new DtoChartsData();
+        chartsData.setName("Бюджет");
+        chartsData.setAmount(7500);
+        chartsData.setSomeLabel("НИР и ОКР");
+
+        DtoChartsData chartsData1 = new DtoChartsData();
+        chartsData1.setName("Отклонение");
+        chartsData1.setAmount(800);
+        chartsData1.setSomeLabel("НИР и ОКР");
+
+        DtoChartsData chartsData2 = new DtoChartsData();
+        chartsData2.setName("Факт");
+        chartsData2.setAmount(8300);
+        chartsData2.setSomeLabel("НИР и ОКР");
+
+        DtoChartsData chartsData3 = new DtoChartsData();
+        chartsData3.setName("Бюджет");
+        chartsData3.setAmount(11500);
+        chartsData3.setSomeLabel("Основная продукция");
+
+        DtoChartsData chartsData4 = new DtoChartsData();
+        chartsData4.setName("Отклонение");
+        chartsData4.setAmount(500);
+        chartsData4.setSomeLabel("Основная продукция");
+
+        DtoChartsData chartsData5 = new DtoChartsData();
+        chartsData5.setName("Факт");
+        chartsData5.setAmount(12000);
+        chartsData5.setSomeLabel("Основная продукция");
+
+        DtoChartsData chartsData6 = new DtoChartsData();
+        chartsData6.setName("Бюджет");
+        chartsData6.setAmount(35000);
+        chartsData6.setSomeLabel("Основаные услуги");
+
+        DtoChartsData chartsData7 = new DtoChartsData();
+        chartsData7.setName("Отклонение");
+        chartsData7.setAmount(2000);
+        chartsData7.setSomeLabel("Основаные услуги");
+
+        DtoChartsData chartsData8 = new DtoChartsData();
+        chartsData8.setName("Факт");
+        chartsData8.setAmount(37000);
+        chartsData8.setSomeLabel("Основаные услуги");
+
+        DtoChartsData chartsData9 = new DtoChartsData();
+        chartsData9.setName("Бюджет");
+        chartsData9.setAmount(1200);
+        chartsData9.setSomeLabel("Прочие доходы");
+
+        DtoChartsData chartsData10 = new DtoChartsData();
+        chartsData10.setName("Отклонение");
+        chartsData10.setAmount(1100);
+        chartsData10.setSomeLabel("Прочие доходы");
+
+        DtoChartsData chartsData11 = new DtoChartsData();
+        chartsData11.setName("Факт");
+        chartsData11.setAmount(2300);
+        chartsData11.setSomeLabel("Прочие доходы");
+
+        charts.getDtoChartsDataList().add(chartsData);
+        charts.getDtoChartsDataList().add(chartsData1);
+        charts.getDtoChartsDataList().add(chartsData2);
+        charts.getDtoChartsDataList().add(chartsData3);
+        charts.getDtoChartsDataList().add(chartsData4);
+        charts.getDtoChartsDataList().add(chartsData5);
+        charts.getDtoChartsDataList().add(chartsData6);
+        charts.getDtoChartsDataList().add(chartsData7);
+        charts.getDtoChartsDataList().add(chartsData8);
+        charts.getDtoChartsDataList().add(chartsData9);
+        charts.getDtoChartsDataList().add(chartsData10);
+        charts.getDtoChartsDataList().add(chartsData11);
+
+        return charts;
+    }
+
+    private Map<String, Object> fillTheCharts(DtoCharts dtoCharts){
+        Map<String, Object> reportParams = new HashMap<String, Object>();
+        reportParams.put("usualDataset", new JRBeanCollectionDataSource(dtoCharts.getDtoChartsDataList()));
+
+        return reportParams;
     }
 }

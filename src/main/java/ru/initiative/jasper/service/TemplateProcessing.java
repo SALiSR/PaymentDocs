@@ -20,7 +20,7 @@ public class TemplateProcessing {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TemplateProcessing.class);
 
-    public byte[] doTemplateFilled(Resource template, HttpServletRequest request, Map<String, Object> reportParams){
+    public byte[] doTemplateFilled(Resource template, Map<String, Object> reportParams){
         JRDataSource dataSource = new JREmptyDataSource();
         JasperDesign jasperDesign;
         ByteArrayOutputStream out = new ByteArrayOutputStream();
