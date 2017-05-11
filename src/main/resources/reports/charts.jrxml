@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-11T11:28:07 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="charts" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec1f603f-f4a2-4a11-847d-e988dbd8fdbf">
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="fe556930-4bba-41fc-936a-521c298f04c6">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+		<field name="amount" class="java.lang.Integer"/>
+		<field name="someLabel" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="f77a9ed8-28c8-4902-a379-47976abfca63">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+		<field name="amount" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="Dataset3" uuid="34df14a1-6d2a-4872-9730-85b443ffab6f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="usualDataset" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="pieChartDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="800" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="297" width="554" height="200" uuid="641c9f60-8861-4959-be87-92f4407d2b05">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Dataset1" uuid="513b6cad-9a37-48ca-9548-45ab7c5264b3">
+							<dataSourceExpression><![CDATA[$P{usualDataset}]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{name}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{someLabel}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{amount}]]></valueExpression>
+						<labelExpression><![CDATA[]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="600" width="554" height="200" uuid="9c9d41b1-ef84-497a-8d37-94ce307880d9"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="Dataset2" uuid="da36d14e-a442-49af-9afd-9752ebbbb8ce">
+							<dataSourceExpression><![CDATA[$P{pieChartDataSet}]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{name}]]></keyExpression>
+					<valueExpression><![CDATA[$F{amount}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="0" y="550" width="554" height="30" uuid="534a9ab7-3ddc-4561-8b3b-5acdcec51f5f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="ArialPackageUtf" size="14"/>
+				</textElement>
+				<text><![CDATA[Фактическая структура себестоимости]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="30" uuid="0b4b7742-201a-4a43-956b-b5352e09d396"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="ArialPackageUtf" size="16"/>
+				</textElement>
+				<text><![CDATA[Структура доходов]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="260" width="555" height="30" uuid="51b2cdea-d600-4af8-8bcd-a3e1d2547628"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="ArialPackageUtf" size="14"/>
+				</textElement>
+				<text><![CDATA[Анализ доходов]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="68" width="554" height="140" uuid="2eda3d10-ab73-404d-a10e-b09dea0ce5fb">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset3" uuid="fca9c43f-2537-416a-b35e-4daf3e0c90b8">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="140" uuid="3ad5df17-6b64-421c-aa61-5d5509a9d41a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table_TH" height="50" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="bed6fd2f-b3d8-4564-94f5-6f53d00e35fc"/>
+								<box leftPadding="8"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Бюджет]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="df6fbec7-6095-405e-ba5b-9e343c1c1d70"/>
+								<box leftPadding="8"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Отклонение]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="e87cffeb-29a9-4817-b622-587fd2e84f64"/>
+								<box leftPadding="8"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Факт]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="6b4c728a-da3c-4e6f-aebe-81ae16974d42">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="50" uuid="a0c04eef-9f63-4a1b-b0f6-d6337744f08e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[НИР и ОКР]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="b4fb5c44-1b7e-41eb-b647-bfc390301b0c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[7500]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="6f984730-88e0-4694-8837-1ff40d7ad704"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[800]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="fc36be72-e8e4-4560-b85f-b9fd3d79000b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[8300]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="9186108c-647b-4081-af89-cfbce83fdc9f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="50" uuid="7c2b1f4d-dc02-41e8-bb05-62896ca6fb52"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Основная продукция]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="fa6bf849-8311-4e4f-a2fc-7821b01625d6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[12000]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="2699e2ac-d048-4d3b-9eb2-4c1272fcd670"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[500]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="4dec56b0-6c1d-41c6-8e0f-0f32b6441ce1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[11500]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="9ce80f95-eaac-48cd-93e2-b248e9fc6c9c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader style="Table_TH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="50" uuid="1b3c193b-38e1-4d40-88c0-87e9c6d8b530"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Основные услуги]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="b8156f78-9952-4c4b-83b7-d7619b809faa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[35000]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="454604f5-0de0-4040-920a-809ca0f45900"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[2000]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="d431de0e-18e6-44e0-a59a-bd3e69364876"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[37000]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="104" uuid="f59b2cdb-41ae-4e60-b08a-e727d1a830b1">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader style="Table_TH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="104" height="50" uuid="c7e3895d-d585-47fd-ba7b-70d41bded492"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="ArialPackageUtf"/>
+								</textElement>
+								<text><![CDATA[Прочие доходы]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="104" height="30" uuid="ecc3a086-6e45-4ff0-9d0f-f8d7d6805781"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[1200]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="104" height="30" uuid="83339e3d-b45f-4984-b4da-0f2bda4c1ef6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[1100]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="104" height="30" uuid="bcc57ba8-4613-446a-abf2-bebd70ffd3c4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[3500]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
