@@ -32,7 +32,8 @@
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/mainpage}"><span class="glyphicon"></span>Платежное поручение</a></li>
                 <li><a th:href="@{/invoicepage}"><span class="glyphicon"></span>Счет на оплату</a></li>
-                <li class="active"><a th:href="@{/chartspage}"><span class="glyphicon"></span>Документ с графиками</a></li>
+                <li class="active"><a th:href="@{/chartspage}"><span class="glyphicon"></span>Документ с графиками</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -40,22 +41,61 @@
 <div class="container">
     <div class="jumbotron">
         <div class="row">
-            <div id="container" class="col-md-8 col-md-offset-2" style="min-width: 400px; height: 400px; margin: 0 auto">
+            <div class="col-md-8 col-md-offset-2">
+                <H1 class="col-md-11 col-md-offset-1">Структура доходов</H1>
+                <br/>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>НИР и ОКР</th>
+                        <th>Основная продукция</th>
+                        <th>Основные услуги</th>
+                        <th>Прочие доходы</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Бюджет</td>
+                        <td>7500</td>
+                        <td>12000</td>
+                        <td>35000</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>Факт</td>
+                        <td>8300</td>
+                        <td>11500</td>
+                        <td>37000</td>
+                        <td>3500</td>
+                    </tr>
+                    <tr>
+                        <td>Отклонение</td>
+                        <td>800</td>
+                        <td>500</td>
+                        <td>2000</td>
+                        <td>1100</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/>
 
+                <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <br/><br/>
+
+                <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+                <br/>
+
+                <form class="form-horizontal" role="form" action="/charts" method="post" target="_blank">
+                    <div>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-primary">Сформировать PDF</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <form class="form-horizontal" role="form" action="/charts" method="post" target="_blank">
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <div class="pull-right">
-                        <button type="submit" class="btn btn-primary">Сформировать PDF</button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
-
 
 
     <!--<div class="jumbotron">
@@ -107,7 +147,7 @@
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares. January, 2015 to May, 2015'
+            text: 'Фактическая структура себестоимости'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -127,19 +167,73 @@
             }
         },
         series: [{
-            name: 'Brands',
+            name: 'Статья',
             data: [
-                { name: 'Microsoft Internet Explorer', y: 56.33 },
+                { name: 'Прочие доходы', y: 3500 },
                 {
-                    name: 'Chrome',
-                    y: 24.03,
+                    name: ' НИР и ОКР',
+                    y: 8300,
                     sliced: true,
                     selected: true
                 },
-                { name: 'Firefox', y: 10.38 },
-                { name: 'Safari', y: 4.77 }, { name: 'Opera', y: 0.91 },
-                { name: 'Proprietary or Undetectable', y: 0.2 }
+                { name: 'Основная продукция', y: 11500 },
+                { name: 'Основные услуги', y: 37000 }
             ]
+        }]
+    });
+
+
+    Highcharts.chart('container2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Анализ доходов'
+        },
+        subtitle: {
+            text: 'Источник: внутренне исследование'
+        },
+        xAxis: {
+            categories: [
+                'НИР и ОКР',
+                'Основная продукция',
+                'Основные услуги',
+                'Прочие доходы'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Десятки тысяч'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Бюджет',
+            data: [7500, 12000, 35000, 1200]
+
+        }, {
+            name: 'Факт',
+            data: [8300, 11500, 37000, 3500]
+
+        }, {
+            name: 'Отклонение',
+            data: [800, 500, 2000, 1100]
+
         }]
     });
 </script>

@@ -57,11 +57,11 @@
                 </thead>
                 <tbody>
                 <tr th:each="tbl : ${theTable}">
-                    <td th:text="${tbl.goods}">A Smoke Test'</td>
-                    <td th:text="${tbl.number}">A Smoke Test'</td>
-                    <td th:text="${tbl.unit}">A Smoke Test'</td>
-                    <td th:text="${tbl.price}">A Smoke Test'</td>
-                    <td th:text="${tbl.total}">A Smoke Test'</td>
+                    <td th:text="${tbl.goods}"></td>
+                    <td th:text="${tbl.number}"></td>
+                    <td th:text="${tbl.unit}"></td>
+                    <td th:text="${tbl.price}"></td>
+                    <td th:text="${tbl.total}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -177,21 +177,6 @@
                             </div>
                         </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Всего наименований:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="countPosition" class="form-control" th:field="*{countPosition}" />
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Сумма с НДС:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="totalSumNDS" class="form-control" th:field="*{totalSumNDS}" />
-                            </div>
-                        </div>
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-3 control-label">Общая сумма:</label>
