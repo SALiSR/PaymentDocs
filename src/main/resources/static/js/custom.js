@@ -47,5 +47,10 @@ $(document).ready(function(){
         $('#totalSumString').val('Семьсот тысяч рублей 00 копеек');
         $('#totalSumNDS').val('106 779,70');
     });
+
+    //Добавленны для автоматическиого заполнения задезейбленных полей при загрузку страницы,
+    //как будет добавленна валидация.
+    $("#fillTestDataOrder").trigger( "click");
+    $("#fillTestDataInvoice").trigger( "click");
 });
 

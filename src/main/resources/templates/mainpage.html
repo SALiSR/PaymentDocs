@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Номер:</label>
                         <div class="col-md-9">
-                            <input type="text" id="paymentOrderNum" placeholder="Номер поручения" class="form-control" th:field="*{paymentOrderNum}"  />
+                            <input type="text" id="paymentOrderNum" placeholder="Номер поручения" class="form-control" th:field="*{paymentOrderNum}"   readonly="readonly"/>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сумма:</label>
                         <div class="col-md-9">
-                            <input type="text" id="payerSumQuant" placeholder="Сумма цифрами" class="form-control" th:field="*{payerSumQuant}"  />
+                            <input type="text" id="payerSumQuant" placeholder="Сумма цифрами" class="form-control" th:field="*{payerSumQuant}"   readonly="readonly"/>
                         </div>
                     </div>
 
@@ -77,14 +77,14 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">ИНН:</label>
                         <div class="col-md-4">
-                            <input type="text" id="payerINN" placeholder="ИНН" class="form-control" th:field="*{payerINN}" />
+                            <input type="text" id="payerINN" placeholder="ИНН" class="form-control" th:field="*{payerINN}" readonly="readonly"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-3 control-label" >КПП:</label>
                         <div class="col-md-4">
-                            <input type="text" id="payerKPP" placeholder="КПП" class="form-control" th:field="*{payerKPP}" />
+                            <input type="text" id="payerKPP" placeholder="КПП" class="form-control" th:field="*{payerKPP}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@
                         <label class="col-md-3 control-label">Плательщик:</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="payerCompanyName" name="message" placeholder="Наименование плательщика"
-                                      rows="3" th:field="*{payerCompanyName}" ></textarea>
+                                      rows="3" th:field="*{payerCompanyName}" readonly="readonly"></textarea>
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-md-9">
-                            <input type="text" id="payerAccount" class="form-control" th:field="*{payerAccount}"/>
+                            <input type="text" id="payerAccount" class="form-control" th:field="*{payerAccount}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                         <label class="col-md-3 control-label">Банк плательщика:</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="payerBankName" name="message" placeholder="Реквизиты банка получателя"
-                                      rows="3" th:field="*{payerBankName}" ></textarea>
+                                      rows="3" th:field="*{payerBankName}" readonly="readonly"></textarea>
                         </div>
                     </div>
 
@@ -118,7 +118,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">БИК:</label>
                         <div class="col-md-9">
-                            <input type="text" placeholder="БИК" id="payerBankBIK" class="form-control" th:field="*{payerBankBIK}"/>
+                            <input type="text" placeholder="БИК" id="payerBankBIK" class="form-control" th:field="*{payerBankBIK}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -126,7 +126,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-md-9">
-                            <input type="text" id="payerBankAccount" class="form-control" th:field="*{payerBankAccount}" />
+                            <input type="text" id="payerBankAccount" class="form-control" th:field="*{payerBankAccount}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -138,13 +138,13 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">ИНН:</label>
                         <div class="col-md-4">
-                            <input type="text" id="recipientINN" placeholder="ИНН" class="form-control" th:field="*{recipientINN}"/>
+                            <input type="text" id="recipientINN" placeholder="ИНН" class="form-control" th:field="*{recipientINN}" readonly="readonly"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">КПП:</label>
                         <div class="col-md-4">
-                            <input type="text" id="recipientKPP" placeholder="КПП" class="form-control" th:field="*{recipientKPP}"/>
+                            <input type="text" id="recipientKPP" placeholder="КПП" class="form-control" th:field="*{recipientKPP}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -154,7 +154,7 @@
                         <label class="col-md-3 control-label">Плательщик:</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="recipientCompanyName" name="message" placeholder="Наименование плательщика"
-                                      rows="3" th:field="*{recipientCompanyName}"></textarea>
+                                      rows="3" th:field="*{recipientCompanyName}" readonly="readonly"></textarea>
                         </div>
                     </div>
 
@@ -162,7 +162,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-md-9">
-                            <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}"/>
+                            <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -171,7 +171,7 @@
                         <label class="col-md-3 control-label">Банк плательщика:</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="recipientBankName" name="message" placeholder="Реквизиты банка получателя"
-                                      rows="3" th:field="*{recipientBankName}"></textarea>
+                                      rows="3" th:field="*{recipientBankName}" readonly="readonly"></textarea>
                         </div>
                     </div>
 
@@ -179,7 +179,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">БИК:</label>
                         <div class="col-md-9">
-                            <input type="text" id="recipientBankBIK" placeholder="БИК" class="form-control" th:field="*{recipientBankBIK}"/>
+                            <input type="text" id="recipientBankBIK" placeholder="БИК" class="form-control" th:field="*{recipientBankBIK}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -187,7 +187,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
                         <div class="col-sm-9">
-                            <input type="text" id="recipientAccount" class="form-control" th:field="*{recipientAccount}"/>
+                            <input type="text" id="recipientAccount" class="form-control" th:field="*{recipientAccount}" readonly="readonly"/>
                         </div>
                     </div>
 
@@ -196,7 +196,7 @@
                         <label class="col-md-3 control-label">Назначение платежа:</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="paymentOrderPurpose" name="message" placeholder="Назначение платежа"
-                                      rows="3" th:field="*{paymentOrderPurpose}"></textarea>
+                                      rows="3" th:field="*{paymentOrderPurpose}" readonly="readonly"></textarea>
                         </div>
                     </div>
 

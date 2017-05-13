@@ -30,14 +30,17 @@ public class TestDataForJasper {
 
         reportParams.put("providerName", dtoInvoice.getProviderName());
         reportParams.put("buyerName", dtoInvoice.getBuyerName());
-
         reportParams.put("directorName", dtoInvoice.getDirectorName());
         reportParams.put("accounterName", dtoInvoice.getAccounterName());
-        reportParams.put("countPosition", dtoInvoice.getCountPosition());
         reportParams.put("totalSum", dtoInvoice.getTotalSum());
-        reportParams.put("totalSumString", dtoInvoice.getTotalSumString());
-        reportParams.put("totalSumNDS", dtoInvoice.getTotalSumNDS());
         reportParams.put("invoiceTableList", new JRBeanCollectionDataSource(getDtoInvoiceListSupport()));
+
+        //reportParams.put("countPosition", dtoInvoice.getCountPosition());
+        //reportParams.put("totalSumNDS", dtoInvoice.getTotalSumNDS());
+        //reportParams.put("totalSumString", dtoInvoice.getTotalSumString());
+        reportParams.put("countPosition", "1");
+        reportParams.put("totalSumNDS", "106 779,70");
+        reportParams.put("totalSumString",  new NumbersToWords(0, "700000.00").printResult());
 
         return reportParams;
     }
