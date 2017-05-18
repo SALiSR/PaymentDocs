@@ -52,5 +52,266 @@ $(document).ready(function(){
     //как будет добавленна валидация.
     $("#fillTestDataOrder").trigger( "click");
     $("#fillTestDataInvoice").trigger( "click");
+
+    /**
+     * правила валидации mainpage
+     */
+    $("#form-order").validate({
+
+        rules:{
+            paymentOrderNum:{
+                required: true
+            },
+            payerSumQuant:{
+                required: true
+            },
+            payerINN:{
+                required: true,
+                minlength:10,
+                maxlength:10
+            },
+            payerKPP:{
+                required: true,
+                minlength:9
+            },
+            payerCompanyName:{
+                required: true
+            },
+            payerAccount:{
+                required: true,
+                minlength:20
+            },
+            payerBankName:{
+                required: true
+            },
+            payerBankBIK:{
+                required: true,
+                minlength:8
+            },
+            payerBankAccount:{
+                required: true,
+                minlength:20
+            },
+            recipientINN:{
+                required: true,
+                minlength:10
+            },
+            recipientKPP:{
+                required: true,
+                minlength:9
+            },
+            recipientCompanyName:{
+                required: true
+            },
+            recipientBankAccount:{
+                required: true,
+                minlength:20
+            },
+            recipientBankName:{
+                required: true
+            },
+            recipientBankBIK:{
+                required: true,
+                minlength:8
+            },
+            recipientAccount:{
+                required: true,
+                minlength:20
+            },
+            paymentOrderPurpose:{
+                required: true,
+            }
+        },
+
+        messages:{
+            paymentOrderNum:{
+                required: "Пожалуйста, внесите данные о номере платежного поручения"
+            },
+            payerSumQuant:{
+                required: "Пожалуйста, внесите сумму перевода"
+            },
+            payerINN:{
+                required: "Пожайлуста, внесите ИНН плательщика",
+                minlength: "ИНН содержит 10 цифр"
+            },
+            payerKPP:{
+                required: "Пожайлуста, внесите КПП плательщика",
+                minlength: "ИНН содержит 9 цифр"
+            },
+            payerCompanyName:{
+                required: "Пожайлуста, внесите данные о наименовании Плательщика"
+            },
+            payerAccount:{
+                required: "Пожайлуста, внесите данные о номере счета плательщика",
+                minlength:"Номер счета плательщика содержит 20 цифр"
+            },
+            payerBankName:{
+                required: "Пожайлуста, внесите наименование Банка плательщика"
+            },
+            payerBankBIK:{
+                required: "Пожайлуста, внесите БИК Банка плательщика",
+                minlength:"БИК содержит 8 цифр"
+            },
+            payerBankAccount:{
+                required: "Пожайлуста, внесите счет БИК Банка плательщика",
+                minlength:"Счет содержит 20 цифр"
+            },
+            recipientINN:{
+                required: "Пожайлуста, внесите ИНН получателя",
+                minlength:"ИНН содержит 9 цифр"
+            },
+            recipientKPP:{
+                required: "Пожайлуста, внесите КПП получателя",
+                minlength: "КПП содержит 9 цифр"
+            },
+            recipientCompanyName:{
+                required: "Пожайлуста, внесите наименование Организации получателя"
+            },
+            recipientBankAccount:{
+                required: "Пожайлуста, внесите счет Организации получателя",
+                minlength:"Счет содержит 20 цифр"
+            },
+            recipientBankName:{
+                required: "Пожайлуста, внесите наименование Банка получателя"
+            },
+            recipientBankBIK:{
+                required: "Пожайлуста, внесите БИК Банка получателя",
+                minlength:"Счет содержит 8 цифр"
+            },
+            recipientAccount:{
+                required: "Пожайлуста, внесите счет Банка получателя",
+                minlength:"Счет содержит 20 цифр"
+            },
+            paymentOrderPurpose:{
+                required: "Пожайлуста, внесите данные о назаначении платежа",
+            }
+        }
+    });
+
+    /**
+     * маски для mainpage (order)
+     */
+    $('#payerSumQuant').mask("###0.00", {reverse: true});
+    $('#payerINN').mask("9999999999");
+    $('#payerKPP').mask("999999999");
+    $('#payerAccount').mask("999999999999999999999");
+    $('#payerBankBIK').mask("99999999");
+    $('#payerBankAccount').mask("99999999999999999999");
+    $('#recipientINN').mask("9999999999");
+    $('#recipientKPP').mask("999999999");
+    $('#recipientBankAccount').mask("99999999999999999999");
+    $('#recipientBankBIK').mask("99999999");
+    $('#recipientAccount').mask("999999999999999999999");
+
+    /**
+     * правила валидации invoice
+     */
+    $("#form-invoice").validate({
+
+        rules:{
+            documentNumber:{
+                required: true
+            },
+            numberINN:{
+                required: true,
+                minlength:10
+            },
+            numberKPP:{
+                required: true,
+                minlength:9
+            },
+            recipientName:{
+                required: true
+            },
+            recipientNameBank:{
+                required: true
+            },
+            recipientBIKBank:{
+                required: true,
+                minlength:8
+            },
+            recipientBankAccount:{
+                required: true,
+                minlength:20
+            },
+            recipientBankAccount2:{
+                required: true,
+                minlength:20
+            },
+            providerName:{
+                required: true
+            },
+            buyerName:{
+                required: true
+            },
+            directorName:{
+                required: true
+            },
+            accounterName:{
+                required: true
+            },
+            totalSum:{
+                required: true
+            },
+        },
+
+        messages:{
+            documentNumber:{
+                required: "Пожалуйста, внесите номер документа"
+            },
+            numberINN:{
+                required: "Пожайлуста, внесите ИНН",
+                minlength: "ИНН содержит 10 цифр"
+            },
+            numberKPP:{
+                required: "Пожайлуста, внесите КПП",
+                minlength: "ИНН содержит 9 цифр"
+            },
+            recipientName:{
+                required: "Пожайлуста, внесите данные о наименовании Получателя"
+            },
+            recipientNameBank:{
+                required: "Пожайлуста, внесите наименование Банка получателя"
+            },
+            recipientBIKBank:{
+                required: "Пожайлуста, внесите БИК Банка получателя",
+                minlength:"Счет содержит 8 цифр"
+            },
+            recipientBankAccount:{
+                required: "Пожайлуста, внесите счет Организации получателя",
+                minlength:"Счет содержит 20 цифр"
+            },
+            recipientBankAccount2:{
+                required: "Пожайлуста, внесите счет Организации получателя",
+                minlength:"Счет содержит 20 цифр"
+            },
+            providerName:{
+                required: "Пожайлуста, внесите наименование Организации поставщика"
+            },
+            buyerName:{
+                required: "Пожайлуста, внесите наименование Организации покупателя"
+            },
+            directorName:{
+                required: "Пожайлуста, внесите ФИО руководителя организации"
+            },
+            accounterName:{
+                required: "Пожайлуста, внесите ФИО бухгалтера организации"
+            },
+            totalSum:{
+                required: "Пожалуйста, внесите сумму перевода"
+            },
+        }
+    });
+    /**
+     * маски для invoce
+     */
+    $('#numberINN').mask("999999999");
+    $('#numberKPP').mask("999999999");
+    $('#recipientBIKBank').mask("99999999");
+    $('#recipientBankAccount').mask("99999999999999999999");
+    $('#recipientBankAccount2').mask("99999999999999999999");
+    $('#totalSum').mask("# ##0.00", {reverse: true});
 });
+
+
 

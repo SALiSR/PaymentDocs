@@ -10,6 +10,7 @@
     <title>Image Header Template for Bootstrap</title>
     <link href="./dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="./dist/css/header.css" rel="stylesheet"/>
+    <link href="./dist/css/style.css" rel="stylesheet"/>
 </head>
 <body class="body-top">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -70,7 +71,7 @@
         <div class="row">
             <!--<div class="col-md-4 col-md-offset-4">-->
             <div class="col-md-6 col-md-offset-3">
-                <form class="form-horizontal" role="form" action="#" th:action="@{/invoice}" th:object="${invoice}" method="post" target="_blank">
+                <form class="form-horizontal" id="form-invoice" role="form" action="#" th:action="@{/invoice}" th:object="${invoice}" method="post" target="_blank">
                     <!--<form class="form-horizontal" role="form"  action="/order" method="post" modelAttribute="dtoOrder">-->
                     <fieldset>
 
@@ -81,7 +82,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Номер:</label>
                             <div class="col-md-9">
-                                <input type="text" id="documentNumber" placeholder="Номер счета" class="form-control" th:field="*{documentNumber}" readonly="readonly"/>
+                                <input type="text" id="documentNumber" placeholder="Номер счета" class="form-control" th:field="*{documentNumber}"/>
                             </div>
                         </div>
 
@@ -89,14 +90,14 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">ИНН:</label>
                             <div class="col-md-4">
-                                <input type="text" id="numberINN" placeholder="ИНН" class="form-control" th:field="*{numberINN}" readonly="readonly"/>
+                                <input type="text" id="numberINN" placeholder="ИНН" class="form-control" th:field="*{numberINN}"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" >КПП:</label>
                             <div class="col-md-4">
-                                <input type="text" id="numberKPP" placeholder="КПП" class="form-control" th:field="*{numberKPP}" readonly="readonly"/>
+                                <input type="text" id="numberKPP" placeholder="КПП" class="form-control" th:field="*{numberKPP}"/>
                             </div>
                         </div>
 
@@ -105,7 +106,7 @@
                             <label class="col-md-3 control-label">Получатель средств:</label>
                             <div class="col-md-9">
                             <textarea class="form-control" id="recipientName" name="message" placeholder="Наименование получателя"
-                                      rows="3" th:field="*{recipientName}" readonly="readonly"></textarea>
+                                      rows="3" th:field="*{recipientName}"></textarea>
                             </div>
                         </div>
 
@@ -114,7 +115,7 @@
                             <label class="col-md-3 control-label">Банк получателя:</label>
                             <div class="col-md-9">
                             <textarea class="form-control" id="recipientNameBank" name="message" placeholder="Наименование банка получателя"
-                                      rows="3" th:field="*{recipientNameBank}" readonly="readonly"></textarea>
+                                      rows="3" th:field="*{recipientNameBank}"></textarea>
                             </div>
                         </div>
 
@@ -122,7 +123,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">БИК:</label>
                             <div class="col-md-9">
-                                <input type="text" placeholder="БИК" id="recipientBIKBank" class="form-control" th:field="*{recipientBIKBank}" readonly="readonly"/>
+                                <input type="text" placeholder="БИК" id="recipientBIKBank" class="form-control" th:field="*{recipientBIKBank}"/>
                             </div>
                         </div>
 
@@ -130,7 +131,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Сч. №:</label>
                             <div class="col-md-9">
-                                <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}" readonly="readonly"/>
+                                <input type="text" id="recipientBankAccount" class="form-control" th:field="*{recipientBankAccount}"/>
                             </div>
                         </div>
 
@@ -138,7 +139,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Сч. № (2):</label>
                             <div class="col-md-9">
-                                <input type="text" id="recipientBankAccount2" class="form-control" th:field="*{recipientBankAccount2}" readonly="readonly"/>
+                                <input type="text" id="recipientBankAccount2" class="form-control" th:field="*{recipientBankAccount2}"/>
                             </div>
                         </div>
 
@@ -148,7 +149,7 @@
                             <label class="col-md-3 control-label">Поставщик:</label>
                             <div class="col-md-9">
                             <textarea class="form-control" id="providerName" name="message" placeholder="Поставщик описание"
-                                      rows="3" th:field="*{providerName}" readonly="readonly"></textarea>
+                                      rows="3" th:field="*{providerName}"></textarea>
                             </div>
                         </div>
 
@@ -157,7 +158,7 @@
                             <label class="col-md-3 control-label">Покупатель:</label>
                             <div class="col-md-9">
                             <textarea class="form-control" id="buyerName" name="message" placeholder="Покупатель описание"
-                                      rows="3" th:field="*{buyerName}" readonly="readonly"></textarea>
+                                      rows="3" th:field="*{buyerName}"></textarea>
                             </div>
                         </div>
 
@@ -165,7 +166,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Директор:</label>
                             <div class="col-md-9">
-                                <input type="text" id="directorName" class="form-control" th:field="*{directorName}" readonly="readonly"/>
+                                <input type="text" id="directorName" class="form-control" th:field="*{directorName}"/>
                             </div>
                         </div>
 
@@ -173,7 +174,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Бухгалтер:</label>
                             <div class="col-md-9">
-                                <input type="text" id="accounterName" class="form-control" th:field="*{accounterName}" readonly="readonly"/>
+                                <input type="text" id="accounterName" class="form-control" th:field="*{accounterName}"/>
                             </div>
                         </div>
 
@@ -203,7 +204,8 @@
 <script src="./dist/js/bootstrap.min.js"></script>
 <script src="./js/jquery-3.2.1.min.js" type="application/javascript"></script>
 <script src="./js/custom.js" type="application/javascript"></script>
-<!--<script src="./js/jquery.mask.js" type="application/javascript"></script>-->
-<script src="./js/jquery.maskedinput.js" type="application/javascript"></script>
+<script src="./js/jquery.mask.js" type="application/javascript"></script>
+<script src="./js/jquery.validate.js" type="application/javascript"></script>
+<!--<script src="./js/jquery.maskedinput.js" type="application/javascript"></script>-->
 </body>
 </html>
