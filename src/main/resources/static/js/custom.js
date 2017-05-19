@@ -67,8 +67,8 @@ $(document).ready(function(){
             },
             payerINN:{
                 required: true,
-                minlength:10,
-                maxlength:10
+                minlength:9,
+                maxlength:12
             },
             payerKPP:{
                 required: true,
@@ -94,7 +94,8 @@ $(document).ready(function(){
             },
             recipientINN:{
                 required: true,
-                minlength:10
+                minlength:9,
+                maxlength:12
             },
             recipientKPP:{
                 required: true,
@@ -132,55 +133,55 @@ $(document).ready(function(){
             },
             payerINN:{
                 required: "Пожайлуста, внесите ИНН плательщика",
-                minlength: "ИНН содержит 10 цифр"
+                minlength: "ИНН должен содержать 9-12 цифр"
             },
             payerKPP:{
                 required: "Пожайлуста, внесите КПП плательщика",
-                minlength: "ИНН содержит 9 цифр"
+                minlength: "КПП содержать 9 цифр"
             },
             payerCompanyName:{
                 required: "Пожайлуста, внесите данные о наименовании Плательщика"
             },
             payerAccount:{
                 required: "Пожайлуста, внесите данные о номере счета плательщика",
-                minlength:"Номер счета плательщика содержит 20 цифр"
+                minlength:"Номер счета плательщика должен содержать 20 цифр"
             },
             payerBankName:{
                 required: "Пожайлуста, внесите наименование Банка плательщика"
             },
             payerBankBIK:{
                 required: "Пожайлуста, внесите БИК Банка плательщика",
-                minlength:"БИК содержит 8 цифр"
+                minlength:"БИК должен содержать 8 цифр"
             },
             payerBankAccount:{
                 required: "Пожайлуста, внесите счет БИК Банка плательщика",
-                minlength:"Счет содержит 20 цифр"
+                minlength:"Счет должен содержать 20 цифр"
             },
             recipientINN:{
                 required: "Пожайлуста, внесите ИНН получателя",
-                minlength:"ИНН содержит 9 цифр"
+                minlength:"ИНН должен содержать 9-12 цифр"
             },
             recipientKPP:{
                 required: "Пожайлуста, внесите КПП получателя",
-                minlength: "КПП содержит 9 цифр"
+                minlength: "КПП должен содержать 9 цифр"
             },
             recipientCompanyName:{
                 required: "Пожайлуста, внесите наименование Организации получателя"
             },
             recipientBankAccount:{
                 required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет содержит 20 цифр"
+                minlength:"Счет должен содержать 20 цифр"
             },
             recipientBankName:{
                 required: "Пожайлуста, внесите наименование Банка получателя"
             },
             recipientBankBIK:{
                 required: "Пожайлуста, внесите БИК Банка получателя",
-                minlength:"Счет содержит 8 цифр"
+                minlength:"БИК должен содержать 8 цифр"
             },
             recipientAccount:{
                 required: "Пожайлуста, внесите счет Банка получателя",
-                minlength:"Счет содержит 20 цифр"
+                minlength:"Счет должен содержать 20 цифр"
             },
             paymentOrderPurpose:{
                 required: "Пожайлуста, внесите данные о назаначении платежа",
@@ -192,12 +193,12 @@ $(document).ready(function(){
      * маски для mainpage (order)
      */
     $('#payerSumQuant').mask("###0.00", {reverse: true});
-    $('#payerINN').mask("9999999999");
+    $('#payerINN').mask("999999999999");
     $('#payerKPP').mask("999999999");
     $('#payerAccount').mask("999999999999999999999");
     $('#payerBankBIK').mask("99999999");
     $('#payerBankAccount').mask("99999999999999999999");
-    $('#recipientINN').mask("9999999999");
+    $('#recipientINN').mask("999999999999");
     $('#recipientKPP').mask("999999999");
     $('#recipientBankAccount').mask("99999999999999999999");
     $('#recipientBankBIK').mask("99999999");
@@ -214,7 +215,8 @@ $(document).ready(function(){
             },
             numberINN:{
                 required: true,
-                minlength:10
+                minlength:9,
+                maxlength:12
             },
             numberKPP:{
                 required: true,
@@ -261,11 +263,11 @@ $(document).ready(function(){
             },
             numberINN:{
                 required: "Пожайлуста, внесите ИНН",
-                minlength: "ИНН содержит 10 цифр"
+                minlength: "ИНН должен содержать 9-12 цифр"
             },
             numberKPP:{
                 required: "Пожайлуста, внесите КПП",
-                minlength: "ИНН содержит 9 цифр"
+                minlength: "КПП должен содержать 10 цифр"
             },
             recipientName:{
                 required: "Пожайлуста, внесите данные о наименовании Получателя"
@@ -275,15 +277,15 @@ $(document).ready(function(){
             },
             recipientBIKBank:{
                 required: "Пожайлуста, внесите БИК Банка получателя",
-                minlength:"Счет содержит 8 цифр"
+                minlength:"Счет должен содержать 8 цифр"
             },
             recipientBankAccount:{
                 required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет содержит 20 цифр"
+                minlength:"Счет должен содержать 20 цифр"
             },
             recipientBankAccount2:{
                 required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет содержит 20 цифр"
+                minlength:"Счет должен содержать 20 цифр"
             },
             providerName:{
                 required: "Пожайлуста, внесите наименование Организации поставщика"
@@ -305,7 +307,7 @@ $(document).ready(function(){
     /**
      * маски для invoce
      */
-    $('#numberINN').mask("999999999");
+    $('#numberINN').mask("9999999999999");
     $('#numberKPP').mask("999999999");
     $('#recipientBIKBank').mask("99999999");
     $('#recipientBankAccount').mask("99999999999999999999");
