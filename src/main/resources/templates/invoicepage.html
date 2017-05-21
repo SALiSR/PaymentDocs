@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico"/>
     <title>Image Header Template for Bootstrap</title>
     <link href="./dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="./dist/css/bootstrapValidator.min.css" rel="stylesheet"/>
     <link href="./dist/css/header.css" rel="stylesheet"/>
     <link href="./dist/css/style.css" rel="stylesheet"/>
 </head>
@@ -105,8 +107,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Получатель средств:</label>
                             <div class="col-md-9">
-                            <textarea class="form-control" id="recipientName" name="message" placeholder="Наименование получателя"
-                                      rows="3" th:field="*{recipientName}"></textarea>
+                            <input type="text" class="form-control" id="recipientName" name="message"
+                                   placeholder="Наименование получателя" rows="3" th:field="*{recipientName}"/>
                             </div>
                         </div>
 
@@ -114,8 +116,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Банк получателя:</label>
                             <div class="col-md-9">
-                            <textarea class="form-control" id="recipientNameBank" name="message" placeholder="Наименование банка получателя"
-                                      rows="3" th:field="*{recipientNameBank}"></textarea>
+                            <input type="text" class="form-control" id="recipientNameBank" name="message" placeholder="Наименование банка получателя"
+                                      rows="3" th:field="*{recipientNameBank}"/>
                             </div>
                         </div>
 
@@ -148,8 +150,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Поставщик:</label>
                             <div class="col-md-9">
-                            <textarea class="form-control" id="providerName" name="message" placeholder="Поставщик описание"
-                                      rows="3" th:field="*{providerName}"></textarea>
+                            <input type="text" class="form-control" id="providerName" name="message" placeholder="Поставщик описание"
+                                      rows="3" th:field="*{providerName}"/>
                             </div>
                         </div>
 
@@ -157,8 +159,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Покупатель:</label>
                             <div class="col-md-9">
-                            <textarea class="form-control" id="buyerName" name="message" placeholder="Покупатель описание"
-                                      rows="3" th:field="*{buyerName}"></textarea>
+                            <input type="text" class="form-control" id="buyerName" name="message" placeholder="Покупатель описание"
+                                      rows="3" th:field="*{buyerName}"/>
                             </div>
                         </div>
 
@@ -203,9 +205,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="./dist/js/bootstrap.min.js"></script>
 <script src="./js/jquery-3.2.1.min.js" type="application/javascript"></script>
-<script src="./js/custom.js" type="application/javascript"></script>
+<script src="./js/bootstrapvalidator.min.js" type="application/javascript"></script>
 <script src="./js/jquery.mask.js" type="application/javascript"></script>
-<script src="./js/jquery.validate.js" type="application/javascript"></script>
+<script src="./js/custom.js" type="application/javascript"></script>
 <!--<script src="./js/jquery.maskedinput.js" type="application/javascript"></script>-->
 </body>
 </html>

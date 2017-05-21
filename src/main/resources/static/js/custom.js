@@ -1,10 +1,11 @@
+/*alert("!!!");*/
 $(document).ready(function(){
 
     /*$('#payerINN').mask("999999999999", {placeholder: "____________"});*/
 
     $("#fillTestDataOrder").on( "click", function() {
-        $('#paymentOrderNum').val('481');
-        $('#payerSumQuant').val('68678.10');
+        $('#paymentOrderNum').val('');///1234 было по умолчанию
+        $('#payerSumQuant').val('');
 
         $('#payerINN').val('7505005550');
         $('#payerKPP').val('750501001');
@@ -35,7 +36,7 @@ $(document).ready(function(){
         $('#recipientBankAccount').val('30101810100000000112');
         $('#recipientBankAccount2').val('40702810471000007231');
 
-        $('#documentNumber').val('1-НИ от 22 апреля 2011 г.');
+        $('#documentNumber').val(''); //1-НИ от 22 апреля 2011 г. - было по умолчанию
 
         $('#providerName').val('ООО \"Система\", ИНН 7710701721, КПП 771001001, 125047, Москва г, Тверская-Ямская 4-я ул, дом № 11, строение 1, тел.: (495) 121-11-88, факс: (495) 121-11-88');
         $('#buyerName').val('ООО \"НЕРО ГРУП\", ИНН 7716599123, КПП 771601001, 107497, Москва г, Щелковское ш, дом № 65, строение 3');
@@ -54,142 +55,6 @@ $(document).ready(function(){
     $("#fillTestDataInvoice").trigger( "click");
 
     /**
-     * правила валидации mainpage
-     */
-    $("#form-order").validate({
-
-        rules:{
-            paymentOrderNum:{
-                required: true
-            },
-            payerSumQuant:{
-                required: true
-            },
-            payerINN:{
-                required: true,
-                minlength:9,
-                maxlength:12
-            },
-            payerKPP:{
-                required: true,
-                minlength:9
-            },
-            payerCompanyName:{
-                required: true
-            },
-            payerAccount:{
-                required: true,
-                minlength:20
-            },
-            payerBankName:{
-                required: true
-            },
-            payerBankBIK:{
-                required: true,
-                minlength:8
-            },
-            payerBankAccount:{
-                required: true,
-                minlength:20
-            },
-            recipientINN:{
-                required: true,
-                minlength:9,
-                maxlength:12
-            },
-            recipientKPP:{
-                required: true,
-                minlength:9
-            },
-            recipientCompanyName:{
-                required: true
-            },
-            recipientBankAccount:{
-                required: true,
-                minlength:20
-            },
-            recipientBankName:{
-                required: true
-            },
-            recipientBankBIK:{
-                required: true,
-                minlength:8
-            },
-            recipientAccount:{
-                required: true,
-                minlength:20
-            },
-            paymentOrderPurpose:{
-                required: true,
-            }
-        },
-
-        messages:{
-            paymentOrderNum:{
-                required: "Пожалуйста, внесите данные о номере платежного поручения"
-            },
-            payerSumQuant:{
-                required: "Пожалуйста, внесите сумму перевода"
-            },
-            payerINN:{
-                required: "Пожайлуста, внесите ИНН плательщика",
-                minlength: "ИНН должен содержать 9-12 цифр"
-            },
-            payerKPP:{
-                required: "Пожайлуста, внесите КПП плательщика",
-                minlength: "КПП содержать 9 цифр"
-            },
-            payerCompanyName:{
-                required: "Пожайлуста, внесите данные о наименовании Плательщика"
-            },
-            payerAccount:{
-                required: "Пожайлуста, внесите данные о номере счета плательщика",
-                minlength:"Номер счета плательщика должен содержать 20 цифр"
-            },
-            payerBankName:{
-                required: "Пожайлуста, внесите наименование Банка плательщика"
-            },
-            payerBankBIK:{
-                required: "Пожайлуста, внесите БИК Банка плательщика",
-                minlength:"БИК должен содержать 8 цифр"
-            },
-            payerBankAccount:{
-                required: "Пожайлуста, внесите счет БИК Банка плательщика",
-                minlength:"Счет должен содержать 20 цифр"
-            },
-            recipientINN:{
-                required: "Пожайлуста, внесите ИНН получателя",
-                minlength:"ИНН должен содержать 9-12 цифр"
-            },
-            recipientKPP:{
-                required: "Пожайлуста, внесите КПП получателя",
-                minlength: "КПП должен содержать 9 цифр"
-            },
-            recipientCompanyName:{
-                required: "Пожайлуста, внесите наименование Организации получателя"
-            },
-            recipientBankAccount:{
-                required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет должен содержать 20 цифр"
-            },
-            recipientBankName:{
-                required: "Пожайлуста, внесите наименование Банка получателя"
-            },
-            recipientBankBIK:{
-                required: "Пожайлуста, внесите БИК Банка получателя",
-                minlength:"БИК должен содержать 8 цифр"
-            },
-            recipientAccount:{
-                required: "Пожайлуста, внесите счет Банка получателя",
-                minlength:"Счет должен содержать 20 цифр"
-            },
-            paymentOrderPurpose:{
-                required: "Пожайлуста, внесите данные о назаначении платежа",
-            }
-        }
-    });
-
-    /**
      * маски для mainpage (order)
      */
     $('#payerSumQuant').mask("###0.00", {reverse: true});
@@ -205,106 +70,6 @@ $(document).ready(function(){
     $('#recipientAccount').mask("999999999999999999999");
 
     /**
-     * правила валидации invoice
-     */
-    $("#form-invoice").validate({
-
-        rules:{
-            documentNumber:{
-                required: true
-            },
-            numberINN:{
-                required: true,
-                minlength:9,
-                maxlength:12
-            },
-            numberKPP:{
-                required: true,
-                minlength:9
-            },
-            recipientName:{
-                required: true
-            },
-            recipientNameBank:{
-                required: true
-            },
-            recipientBIKBank:{
-                required: true,
-                minlength:8
-            },
-            recipientBankAccount:{
-                required: true,
-                minlength:20
-            },
-            recipientBankAccount2:{
-                required: true,
-                minlength:20
-            },
-            providerName:{
-                required: true
-            },
-            buyerName:{
-                required: true
-            },
-            directorName:{
-                required: true
-            },
-            accounterName:{
-                required: true
-            },
-            totalSum:{
-                required: true
-            },
-        },
-
-        messages:{
-            documentNumber:{
-                required: "Пожалуйста, внесите номер документа"
-            },
-            numberINN:{
-                required: "Пожайлуста, внесите ИНН",
-                minlength: "ИНН должен содержать 9-12 цифр"
-            },
-            numberKPP:{
-                required: "Пожайлуста, внесите КПП",
-                minlength: "КПП должен содержать 10 цифр"
-            },
-            recipientName:{
-                required: "Пожайлуста, внесите данные о наименовании Получателя"
-            },
-            recipientNameBank:{
-                required: "Пожайлуста, внесите наименование Банка получателя"
-            },
-            recipientBIKBank:{
-                required: "Пожайлуста, внесите БИК Банка получателя",
-                minlength:"Счет должен содержать 8 цифр"
-            },
-            recipientBankAccount:{
-                required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет должен содержать 20 цифр"
-            },
-            recipientBankAccount2:{
-                required: "Пожайлуста, внесите счет Организации получателя",
-                minlength:"Счет должен содержать 20 цифр"
-            },
-            providerName:{
-                required: "Пожайлуста, внесите наименование Организации поставщика"
-            },
-            buyerName:{
-                required: "Пожайлуста, внесите наименование Организации покупателя"
-            },
-            directorName:{
-                required: "Пожайлуста, внесите ФИО руководителя организации"
-            },
-            accounterName:{
-                required: "Пожайлуста, внесите ФИО бухгалтера организации"
-            },
-            totalSum:{
-                required: "Пожалуйста, внесите сумму перевода"
-            },
-        }
-    });
-    /**
      * маски для invoce
      */
     $('#numberINN').mask("9999999999999");
@@ -315,5 +80,338 @@ $(document).ready(function(){
     $('#totalSum').mask("# ##0.00", {reverse: true});
 });
 
+/**
+ * Валидация mainpage
+ */
+$(document).ready(function() {
+    $('#form-order').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            paymentOrderNum: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, номер документа'
+                    }
+                }
+            },
+            payerSumQuant: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, Сумму платежа'
+                    }
+                }
+            },
+            payerINN: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        max:12,
+                        message: 'Введите, плиз, ИНН плательщика (9-12 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, ИНН плательщика (9-12 цифр)'
+                    }
+                }
+            },
+            payerKPP: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        message: 'Введите, плиз, КПП плательщика (9 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, КПП плательщика (9 цифр)'
+                    }
+                }
+            },
+            payerCompanyName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование организации плательщика'
+                    }
+                }
+            },
+            payerAccount: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message: 'Номер счета плательщика должен содержать 20 цифр'
+                    },
+                    notEmpty: {
+                        message: 'Номер счета плательщика должен содержать 20 цифр'
+                    }
+                }
+            },
+            payerBankName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование банка плательщика'
+                    }
+                }
+            },
+            payerBankBIK: {
+                validators: {
+                    stringLength: {
+                        min: 8,
+                        message: 'Введите, плиз, БИК банка плательщика (8 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, БИК банка плательщика (8 цифр)'
+                    }
+                }
+            },
+            payerBankAccount: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message:'Введите, плиз, номер счета банка плательщика (20 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, номер счета банка плательщика (20 цифр)'
+                    }
+                }
+            },
+            recipientINN: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        max: 12,
+                        message:'Введите, плиз, ИНН получателя (9-12 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, ИНН получателя (9-12 цифр)'
+                    }
+                }
+            },
+            recipientKPP: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        message:'Введите, плиз, КПП получаетеля (9 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, КПП получателя (9 цифр)'
+                    }
+                }
+            },
+            recipientCompanyName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование организации получателя'
+                    }
+                }
+            },
+            recipientBankAccount: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message:'Введите, плиз, номер счета плательщика (20 цифр)'
+                    },
+                    notEmpty: {
+                        message:'Введите, плиз, номер счета плательщика (20 цифр)'
+                    }
+                }
+            },
+            recipientBankName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование организации получателя'
+                    }
+                }
+            },
+            recipientBankBIK: {
+                validators: {
+                    stringLength: {
+                        min: 8,
+                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
+                    }
+                }
+            },
+            recipientAccount: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
+                    },
+                    notEmpty: {
+                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
+                    }
+                }
+            },
+            paymentOrderPurpose: {
+                validators: {
+                    notEmpty: {
+                        message:'Введите, плиз, описание платежа'
+                    }
+                }
+            }
+        }
+    })
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+            $('#contact_form').data('bootstrapValidator').resetForm();
 
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            /*// Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');*/
+        });
+});
+
+/**
+ * validation option for invoice
+ */
+$(document).ready(function() {
+    $('#form-invoice').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        /*валидация mainpage*/
+        fields: {
+            documentNumber: {
+                validators: {
+                    notEmpty: {
+                        message:'Введите, плиз, номер и дату документа'
+                    }
+                }
+            },
+            numberINN: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        max: 12,
+                        message:'Введите, плиз, ИНН получателя (9-12 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, ИНН получателя (9-12 цифр)'
+                    }
+                }
+            },
+            numberKPP: {
+                validators: {
+                    stringLength: {
+                        min: 9,
+                        message: 'Введите, плиз, КПП получателя (9 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, КПП получателя (9 цифр)'
+                    }
+                }
+            },
+            recipientName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование организации получателя'
+                    }
+                }
+            },
+            recipientNameBank: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, наименование организации получателя'
+                    }
+                }
+            },
+            recipientBIKBank: {
+                validators: {
+                    stringLength: {
+                        min: 8,
+                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
+                    },
+                    notEmpty: {
+                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
+                    }
+                }
+            },
+            recipientBankAccount: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
+                    },
+                    notEmpty: {
+                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
+                    }
+                }
+            },
+            recipientBankAccount2: {
+                validators: {
+                    stringLength: {
+                        min: 20,
+                        message:'Введите, плиз, номер счета получателя (20 цифр)'
+                    },
+                    notEmpty: {
+                        message:'Введите, плиз, номер счета получателя (20 цифр)'
+                    }
+                }
+            },
+            providerName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, данные организации поставщика'
+                    }
+                }
+            },
+            buyerName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, данные организации покупателя'
+                    }
+                }
+            },
+            directorName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, ФИО директора орагнизации'
+                    }
+                }
+            },
+            accounterName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Введите, плиз, ФИО бухгалтера орагнизации'
+                    }
+                }
+            }
+        }
+    })
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+            $('#contact_form').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            /*// Use Ajax to submit form data
+             $.post($form.attr('action'), $form.serialize(), function(result) {
+             console.log(result);
+             }, 'json');*/
+        });
+});
 
