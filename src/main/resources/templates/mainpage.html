@@ -10,9 +10,9 @@
     <title>Image Header Template for Bootstrap</title>
     <link href="./dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="./dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
-    <link href="./dist/css/bootstrapValidator.min.css" rel="stylesheet"/>
+    <!--<link href="./dist/css/bootstrapValidator.min.css" rel="stylesheet"/>-->
     <link href="./dist/css/header.css" rel="stylesheet"/>
-    <link href="./dist/css/style.css" rel="stylesheet"/>
+    <!--<link href="./dist/css/style.css" rel="stylesheet"/>-->
 </head>
 <body class="body-top">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -82,7 +82,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-3 control-label">ИНН:</label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input type="text" name="payerINN" id="payerINN" placeholder="ИНН" class="form-control"
                                    th:field="*{payerINN}"/>
                         </div>
@@ -90,7 +90,7 @@
 
                     <div class="form-group">
                         <label class="col-md-3 control-label" >КПП:</label>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input type="text" name="payerKPP" id="payerKPP" placeholder="КПП" class="form-control"
                                    th:field="*{payerKPP}"/>
                         </div>
@@ -100,8 +100,8 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Плательщик:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="payerCompanyName" name="message"
-                                   placeholder="Наименование плательщика" rows="3" th:field="*{payerCompanyName}"/>
+                            <textarea class="form-control" id="payerCompanyName" name="payerCompanyName"
+                                      placeholder="Наименование плательщика" rows="3" th:field="*{payerCompanyName}"></textarea>
                         </div>
                     </div>
 
@@ -117,8 +117,8 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Банк плательщика:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="payerBankName" name="message"
-                                   placeholder="Реквизиты банка получателя" rows="3" th:field="*{payerBankName}"/>
+                            <textarea class="form-control" id="payerBankName" name="payerBankName"
+                                      placeholder="Реквизиты банка получателя" rows="3" th:field="*{payerBankName}"></textarea>
                         </div>
                     </div>
 
@@ -145,13 +145,13 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-3 control-label">ИНН:</label>
-                        <div class="col-md-4">
+                        <div class="col-md-9">
                             <input type="text" id="recipientINN" placeholder="ИНН" class="form-control" th:field="*{recipientINN}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">КПП:</label>
-                        <div class="col-md-4">
+                        <div class="col-md-9">
                             <input type="text" id="recipientKPP" placeholder="КПП" class="form-control" th:field="*{recipientKPP}"/>
                         </div>
                     </div>
@@ -161,8 +161,8 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Получатель:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="recipientCompanyName" name="message"
-                                   placeholder="Наименование плательщика" rows="3" th:field="*{recipientCompanyName}"/>
+                            <textarea class="form-control" id="recipientCompanyName" name="recipientCompanyName"
+                                      placeholder="Наименование плательщика" rows="3" th:field="*{recipientCompanyName}"></textarea>
                         </div>
                     </div>
 
@@ -194,7 +194,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-3 control-label">Сч. №:</label>
-                        <div class="col-sm-9">
+                        <div class="col-md-9">
                             <input type="text" id="recipientAccount" class="form-control" th:field="*{recipientAccount}"/>
                         </div>
                     </div>
@@ -227,11 +227,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="./dist/js/bootstrap.min.js"></script>
 <script src="./js/jquery-3.2.1.min.js" type="application/javascript"></script>
-<script src="./js/bootstrapvalidator.min.js" type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 <script src="./js/jquery.mask.js" type="application/javascript"></script>
 <script src="./js/custom.js" type="application/javascript"></script>
 
 <!--<script src="./js/jquery.validate.js" type="application/javascript"></script>-->
 <!---<script src="./js/jquery.maskedinput.js" type="application/javascript"></script>-->
+<!--<script src="./js/bootstrapvalidator.min.js" type="application/javascript"></script>-->
 </body>
 </html>

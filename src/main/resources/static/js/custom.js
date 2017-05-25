@@ -1,4 +1,4 @@
-/*alert("!!!");*/
+//alert("!!!");
 $(document).ready(function(){
 
     /*$('#payerINN').mask("999999999999", {placeholder: "____________"});*/
@@ -83,335 +83,169 @@ $(document).ready(function(){
 /**
  * Валидация mainpage
  */
-$(document).ready(function() {
-    $('#form-order').bootstrapValidator({
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            paymentOrderNum: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, номер документа'
-                    }
-                }
-            },
-            payerSumQuant: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, Сумму платежа'
-                    }
-                }
-            },
+
+$( document ).ready( function () {
+    $( "#form-order" ).validate({
+        rules: {
+            paymentOrderNum: "required",
+            payerSumQuant: "required",
             payerINN: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        max:12,
-                        message: 'Введите, плиз, ИНН плательщика (9-12 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, ИНН плательщика (9-12 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 9,
+                maxlength: 12,
             },
             payerKPP: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        message: 'Введите, плиз, КПП плательщика (9 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, КПП плательщика (9 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 9
             },
-            payerCompanyName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование организации плательщика'
-                    }
-                }
-            },
+            payerCompanyName: "required",
             payerAccount: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message: 'Номер счета плательщика должен содержать 20 цифр'
-                    },
-                    notEmpty: {
-                        message: 'Номер счета плательщика должен содержать 20 цифр'
-                    }
-                }
+                required: true,
+                minlength: 20
             },
-            payerBankName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование банка плательщика'
-                    }
-                }
-            },
+            payerBankName: "required",
             payerBankBIK: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                        message: 'Введите, плиз, БИК банка плательщика (8 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, БИК банка плательщика (8 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 8
             },
             payerBankAccount: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message:'Введите, плиз, номер счета банка плательщика (20 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, номер счета банка плательщика (20 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 20
             },
             recipientINN: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        max: 12,
-                        message:'Введите, плиз, ИНН получателя (9-12 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, ИНН получателя (9-12 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 9,
+                maxlength: 12,
             },
             recipientKPP: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        message:'Введите, плиз, КПП получаетеля (9 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, КПП получателя (9 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 9
             },
-            recipientCompanyName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование организации получателя'
-                    }
-                }
-            },
+            recipientCompanyName: "required",
             recipientBankAccount: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message:'Введите, плиз, номер счета плательщика (20 цифр)'
-                    },
-                    notEmpty: {
-                        message:'Введите, плиз, номер счета плательщика (20 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 20
             },
-            recipientBankName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование организации получателя'
-                    }
-                }
-            },
+            recipientBankName: "required",
             recipientBankBIK: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 8
             },
             recipientAccount: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
-                    },
-                    notEmpty: {
-                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
-                    }
-                }
+                required: true,
+                minlength: 20
             },
-            paymentOrderPurpose: {
-                validators: {
-                    notEmpty: {
-                        message:'Введите, плиз, описание платежа'
-                    }
-                }
+            paymentOrderPurpose: "required",
+        },
+        messages: {
+            paymentOrderNum: "Введите, плиз, номер документа",
+            payerSumQuant: "Введите, плиз, Сумму платежа",
+            payerINN: "Введите, плиз, ИНН плательщика (9-12 цифр)",
+            payerKPP: "Введите, плиз, КПП плательщика (9 цифр)",
+            payerCompanyName: "Введите, плиз, наименование организации плательщика",
+            payerAccount: "Номер счета плательщика должен содержать 20 цифр",
+            payerBankName: "Введите, плиз, наименование банка плательщика",
+            payerBankBIK: "Введите, плиз, БИК банка плательщика (8 цифр)",
+            payerBankAccount: "Введите, плиз, номер счета банка плательщика (20 цифр)",
+            recipientINN: "Введите, плиз, ИНН получателя (9-12 цифр)",
+            recipientKPP: "Введите, плиз, КПП получаетеля (9 цифр)",
+            recipientCompanyName: "Введите, плиз, наименование организации получател",
+            recipientBankAccount: "Введите, плиз, номер счета плательщика (20 цифр)",
+            recipientBankName: "Введите, плиз, наименование организации получателя",
+            recipientBankBIK: "Введите, плиз, БИК банка получателя (8 цифр)",
+            recipientAccount: "Введите, плиз, номер счета банка получателя (20 цифр)",
+            paymentOrderPurpose: "Введите, плиз, описание платежа"
+
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "help-block" );
+
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
             }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).parents( ".col-md-9" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $( element ).parents( ".col-md-9" ).addClass( "has-success" ).removeClass( "has-error" );
         }
-    })
-        .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-            $('#contact_form').data('bootstrapValidator').resetForm();
-
-            // Prevent form submission
-            e.preventDefault();
-
-            // Get the form instance
-            var $form = $(e.target);
-
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
-
-            /*// Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');*/
-        });
-});
+    }
+    );
+} );
 
 /**
- * validation option for invoice
+ * Валидация invoice
  */
-$(document).ready(function() {
-    $('#form-invoice').bootstrapValidator({
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        /*валидация mainpage*/
-        fields: {
-            documentNumber: {
-                validators: {
-                    notEmpty: {
-                        message:'Введите, плиз, номер и дату документа'
-                    }
+$( document ).ready( function () {
+    $( "#form-invoice" ).validate({
+            rules: {
+                documentNumber: "required",
+                numberINN: {
+                    required: true,
+                    minlength: 9,
+                    maxlength: 12,
+                },
+                numberKPP: {
+                    required: true,
+                    minlength: 9
+                },
+                recipientName: "required",
+                recipientNameBank: "required",
+                recipientBIKBank: {
+                    required: true,
+                    minlength: 8
+                },
+                recipientBankAccount: {
+                    required: true,
+                    minlength: 20
+                },
+                recipientBankAccount2: {
+                    required: true,
+                    minlength: 20
+                },
+                providerName: "required",
+                buyerName: "required",
+                directorName: "required",
+                accounterName: "required",
+            },
+            messages: {
+                documentNumber: "Введите, плиз, номер документа",
+                numberINN: "Введите, плиз, ИНН плательщика (9-12 цифр)",
+                numberKPP: "Введите, плиз, КПП плательщика (9 цифр)",
+                recipientName: "Введите, плиз, наименование организации плательщика",
+                recipientNameBank: "Введите, плиз, получателя средств",
+                recipientBankName: "Введите, плиз, наименование Банка получателя",
+                recipientBIKBank: "Введите, плиз, БИК банка плательщика (8 цифр)",
+                recipientBankAccount: "Введите, плиз, номер счета банка получателя (20 цифр)",
+                recipientBankAccount2: "Введите, плиз, номер счета Банка получателя (20 цифр)",
+                providerName: "Введите, плиз, наименование организации поставщика",
+                buyerName: "Введите, плиз, наименование организации покупателя",
+                directorName: "Введите, плиз, ФИО директора",
+                accounterName: "Введите, плиз, ФИО бухгалтера",
+            },
+            errorElement: "em",
+            errorPlacement: function ( error, element ) {
+                // Add the `help-block` class to the error element
+                error.addClass( "help-block" );
+
+                if ( element.prop( "type" ) === "checkbox" ) {
+                    error.insertAfter( element.parent( "label" ) );
+                } else {
+                    error.insertAfter( element );
                 }
             },
-            numberINN: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        max: 12,
-                        message:'Введите, плиз, ИНН получателя (9-12 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, ИНН получателя (9-12 цифр)'
-                    }
-                }
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".col-md-9" ).addClass( "has-error" ).removeClass( "has-success" );
             },
-            numberKPP: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        message: 'Введите, плиз, КПП получателя (9 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, КПП получателя (9 цифр)'
-                    }
-                }
-            },
-            recipientName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование организации получателя'
-                    }
-                }
-            },
-            recipientNameBank: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, наименование организации получателя'
-                    }
-                }
-            },
-            recipientBIKBank: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
-                    },
-                    notEmpty: {
-                        message: 'Введите, плиз, БИК банка получателя (8 цифр)'
-                    }
-                }
-            },
-            recipientBankAccount: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
-                    },
-                    notEmpty: {
-                        message:'Введите, плиз, номер счета банка получателя (20 цифр)'
-                    }
-                }
-            },
-            recipientBankAccount2: {
-                validators: {
-                    stringLength: {
-                        min: 20,
-                        message:'Введите, плиз, номер счета получателя (20 цифр)'
-                    },
-                    notEmpty: {
-                        message:'Введите, плиз, номер счета получателя (20 цифр)'
-                    }
-                }
-            },
-            providerName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, данные организации поставщика'
-                    }
-                }
-            },
-            buyerName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, данные организации покупателя'
-                    }
-                }
-            },
-            directorName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, ФИО директора орагнизации'
-                    }
-                }
-            },
-            accounterName: {
-                validators: {
-                    notEmpty: {
-                        message: 'Введите, плиз, ФИО бухгалтера орагнизации'
-                    }
-                }
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents( ".col-md-9" ).addClass( "has-success" ).removeClass( "has-error" );
             }
         }
-    })
-        .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-            $('#contact_form').data('bootstrapValidator').resetForm();
-
-            // Prevent form submission
-            e.preventDefault();
-
-            // Get the form instance
-            var $form = $(e.target);
-
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
-
-            /*// Use Ajax to submit form data
-             $.post($form.attr('action'), $form.serialize(), function(result) {
-             console.log(result);
-             }, 'json');*/
-        });
-});
+    );
+} );
 
